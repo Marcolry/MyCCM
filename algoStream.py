@@ -9,6 +9,18 @@ st.markdown('''# **AlgoFinance Dashboard**
 ''')
 st.header('**Summary**')
 
+############################################################################################# IP
+import socket
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
+print('My local IP is: ' + local_ip)
+from requests import get
+ip = get('https://api.ipify.org').text
+print(f'My public IP is: {ip}')
+st.write(str(local_ip))
+st.write(str(ip))
+
+
 ###################################################################################################### API 00Marc
 ################################## API
 
