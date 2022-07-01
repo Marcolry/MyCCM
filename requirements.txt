@@ -1,0 +1,4 @@
+Bybit==0.2.12
+pandas==1.4.3
+pybit==2.3.0
+streamlit==1.10.0
