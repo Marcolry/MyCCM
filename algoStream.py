@@ -22,22 +22,12 @@ session_auth_00 = usdt_perpetual.HTTP(
 )
 authUSDT_00 = session_auth_00.get_wallet_balance()
 
-session_auth_01 = usdt_perpetual.HTTP(
-    endpoint="https://api.bybit.com",
-    api_key=config.apiKey100,
-    api_secret=config.apiSecret100
-)
-authUSDT_01 = session_auth_01.get_wallet_balance()
-
 ################################################LIMIT
 
 RATELIMIT_00 = authUSDT_00['rate_limit']
 STATELIMIT_00 = authUSDT_00['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
-
-RATELIMIT_01 = authUSDT_01['rate_limit']
-STATELIMIT_01 = authUSDT_01['rate_limit_status']
-RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
+print(STATELIMIT_00)
 
 ############################################################################################# IP
 import socket
@@ -53,22 +43,39 @@ st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
 
 ###################################################################################################### API 00Marc
 
-##################################
+########################### First Line
+
+col1, col2, col3, col4, col5, col6 = st.columns(6)
+
+for i in range(6):
+    if i == 0:
+        with col1:
+            st.info(' 📘 ')
+    if i == 1:
+        with col2:
+            st.info("💰 Equity 💰")
+    if i == 2:
+        with col3:
+            st.info("⬇️ Deposit ⬇️")
+    if i == 3:
+        with col4:
+            st.info("💸 Bénéfice 💸")
+    if i == 4:
+        with col5:
+            st.info('〽️ Performance 〽️')
+    if i == 5:
+        with col6:
+            st.info('✂️ Commission ✂️')
+
+
+
+#################
 
 EQUITY_00 = authUSDT_00['result']['USDT']['equity']
 NRZ_00 = authUSDT_00['result']['USDT']['unrealised_pnl']
 PERF_00 = authUSDT_00['result']['USDT']['cum_realised_pnl']
 
-EQUITY_01 = authUSDT_01['result']['USDT']['equity']
-NRZ_01 = authUSDT_01['result']['USDT']['unrealised_pnl']
-PERF_01 = authUSDT_01['result']['USDT']['cum_realised_pnl']
 
-############################################################################################# END
-
-
-###############
-
-col1_00, col2_00 , col3_00, col4_00, col5_00, col6_00 = st.columns(6)
 
 Math_00 = EQUITY_00 - NRZ_00 - PERF_00
 PNL100_00 = (round(EQUITY_00/round(Math_00),4)-1)*100
@@ -80,6 +87,8 @@ if TAXABLE_00 > 0:
     COMMISSION_00 = TAXABLE_00 * TX
 if TAXABLE_00 < 0:
     COMMISSION_00 = 0
+
+col1_00, col2_00 , col3_00, col4_00, col5_00, col6_00 = st.columns(6)
 
 for i in range(6):
     if i == 0:
@@ -103,7 +112,24 @@ for i in range(6):
 
 #################
 
-###############
+#################
+
+
+session_auth_01 = usdt_perpetual.HTTP(
+    endpoint="https://api.bybit.com",
+    api_key=config.apiKey100,
+    api_secret=config.apiSecret100
+)
+authUSDT_01 = session_auth_01.get_wallet_balance()
+
+RATELIMIT_01 = authUSDT_01['rate_limit']
+STATELIMIT_01 = authUSDT_01['rate_limit_status']
+RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
+print(STATELIMIT_01)
+
+EQUITY_01 = authUSDT_01['result']['USDT']['equity']
+NRZ_01 = authUSDT_01['result']['USDT']['unrealised_pnl']
+PERF_01 = authUSDT_01['result']['USDT']['cum_realised_pnl']
 
 col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01 = st.columns(6)
 
@@ -139,3 +165,26 @@ for i in range(6):
             st.info('✂️'' : ' + str(round(COMMISSION_01,2)))
 
 #################
+
+
+col1T, col2T, col3T, col4T, col5T, col6T = st.columns(6)
+
+for i in range(6):
+    if i == 0:
+        with col1T:
+            st.info('Total')
+    if i == 1:
+        with col2T:
+            st.info("💰"' : ' + str(round(EQUITY_00+EQUITY_01,2)))
+    if i == 2:
+        with col3T:
+            st.info("⬇️"' : ' + str(round(Math_00+Math_01)))
+    if i == 3:
+        with col4T:
+            st.info("💸"' : ' + str(round(TAXABLE_00+TAXABLE_01,2)) + ' (' + str(round(PERF_00+PERF_01,2)) + ' + ' + str(round(NRZ_00+NRZ_01,2)) + ')')
+    if i == 4:
+        with col5T:
+            st.info('〽️'' : ' + str(round(PNL100_00+PNL100_01,3)) +'%')
+    if i == 5:
+        with col6T:
+            st.info('✂️'' : ' + str(round(COMMISSION_00+COMMISSION_01,2)))
