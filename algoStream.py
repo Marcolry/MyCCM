@@ -17,8 +17,7 @@ from requests import get
 ip = get('https://api.ipify.org').text
 print(f'My public IP is: {ip}')
 st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
-st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
-#st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+
 
 #############################################################################################
 
@@ -53,6 +52,8 @@ STATELIMIT_00 = authUSDT_00['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 
+st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
+#st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
 ###################################################################################################### API 00Marc
 
