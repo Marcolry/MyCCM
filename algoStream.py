@@ -6,10 +6,25 @@ import config
 import bybit
 from pybit import usdt_perpetual
 import array as arr
+
+
+############################################################################################# IP
+import socket
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
+print('My local IP is: ' + local_ip)
+from requests import get
+ip = get('https://api.ipify.org').text
+print(f'My public IP is: {ip}')
+st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
+st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
+#st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+
+#############################################################################################
+
 ALL = list(range(0, 349)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
-
 
 df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
 # print(df['last_price'])
@@ -38,17 +53,6 @@ STATELIMIT_00 = authUSDT_00['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 
-############################################################################################# IP
-import socket
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
-print('My local IP is: ' + local_ip)
-from requests import get
-ip = get('https://api.ipify.org').text
-print(f'My public IP is: {ip}')
-st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
-st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
-#st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
 ###################################################################################################### API 00Marc
 
