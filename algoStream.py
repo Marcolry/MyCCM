@@ -40,14 +40,14 @@ print(str(STATELIMIT_00) + '----------------------------------------------------
 
 ############################################################################################# IP
 import socket
-#hostname = socket.gethostname()
-#local_ip = socket.gethostbyname(hostname)
-#print('My local IP is: ' + local_ip)
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
+print('My local IP is: ' + local_ip)
 from requests import get
 ip = get('https://api.ipify.org').text
-#print(f'My public IP is: {ip}')
-#st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
-#st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
+print(f'My public IP is: {ip}')
+st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
+st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
 #st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
 ###################################################################################################### API 00Marc
