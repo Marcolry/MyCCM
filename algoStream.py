@@ -345,8 +345,8 @@ for i in range(11):
 
 
 
-#st.markdown('''# **Detail: 💁🏾‍♀️ 00 - Feli**
-#''')
+st.markdown('''# **Detail: 💁🏾‍♀️ 00 - Feli**
+''')
 
 ##########################
 
@@ -410,8 +410,8 @@ for i in range(11):
 
 
 
-st.markdown('''# **Detail: 👨🏽‍🎓 01 - Algo**
-''')
+#st.markdown('''# **Detail: 👨🏽‍🎓 01 - Algo**
+#''')
 
 ##########################
 
