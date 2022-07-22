@@ -861,8 +861,8 @@ for i in range(11):
 # col2.metric(col8_selection, col8_price, col8_percent)
 # col3.metric(col9_selection, col9_price, col9_percent)
 
-#df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
-df = pd.read_json('https://api.bybit.com/v2/public/tickers')
+df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
+#df = pd.read_json('https://api.bybit.com/v2/public/tickers')
 #print(df['last_price'])
 
 st.header('**All Price**')
