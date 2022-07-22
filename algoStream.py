@@ -1,5 +1,5 @@
 import streamlit as st
-import websocket
+#import websocket
 st.set_page_config(layout="wide")
 import pandas as pd
 import config
@@ -25,7 +25,7 @@ ALL = list(range(0, 349)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
 
-df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
+#df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
 # print(df['last_price'])
 
 st.markdown('''# **AlgoFinance AUM**
@@ -790,23 +790,23 @@ for i in range(11):
 ############################################################################## FORM Bad then good
 
 
-st.markdown('''# **Binance Price App**
-''')
+# st.markdown('''# **Binance Price App**
+# ''')
 
-# Load market data from Binance API
+# # Load market data from Binance API
 
-#https://api.bybit.com/v2/public/tickers
-#https://api.binance.com/api/v3/ticker/24hr
+# #https://api.bybit.com/v2/public/tickers
+# #https://api.binance.com/api/v3/ticker/24hr
 
-# Custom function for rounding values
-def round_value(input_value):
-    if input_value.values > 1:
-        a = float(round(input_value, 2))
-    else:
-        a = float(round(input_value, 8))
-    return a
+# # Custom function for rounding values
+# def round_value(input_value):
+#     if input_value.values > 1:
+#         a = float(round(input_value, 2))
+#     else:
+#         a = float(round(input_value, 8))
+#     return a
 
-col1, col2, col3 = st.columns(3)
+# col1, col2, col3 = st.columns(3)
 #
 # # Widget (Cryptocurrency selection box)
 # col1_selection = st.sidebar.selectbox('Price 1', df.symbol, list(df.symbol).index('BTCUSD') )
