@@ -37,6 +37,9 @@ st.markdown('''# **AlgoFinance AUM**
 #client = bybit.bybit(test=False, api_key=apiKey00, api_secret=apiSecret00)
 #print('loggedin')
 #PERP
+
+##-----------------------------------------------------------------------> 00 - Feli
+
 session_auth_00 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
     api_key=config.apiKey1000,
@@ -45,7 +48,6 @@ session_auth_00 = usdt_perpetual.HTTP(
 authUSDT_00 = session_auth_00.get_wallet_balance()
 posUSDT_00 = session_auth_00.my_position()
 
-################################################LIMIT
 
 RATELIMIT_00 = authUSDT_00['rate_limit']
 STATELIMIT_00 = authUSDT_00['rate_limit_status']
@@ -53,7 +55,27 @@ RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 
 st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
-#st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+
+##-----------------------------------------------------------------------> 01 - Algo
+
+session_auth_01 = usdt_perpetual.HTTP(
+    endpoint="https://api.bybit.com",
+    api_key=config.apiKey100,
+    api_secret=config.apiSecret100
+)
+authUSDT_01 = session_auth_01.get_wallet_balance()
+posUSDT_01 = session_auth_01.my_position()
+
+
+RATELIMIT_01 = authUSDT_01['rate_limit']
+STATELIMIT_01 = authUSDT_01['rate_limit_status']
+RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
+
+st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+
+
+
+
 
 ###################################################################################################### API 00Marc
 
@@ -191,20 +213,6 @@ for i in range(11):
 #################
 
 ##-----------------------------------------------------------------------> 01 - Algo
-
-session_auth_01 = usdt_perpetual.HTTP(
-    endpoint="https://api.bybit.com",
-    api_key=config.apiKey100,
-    api_secret=config.apiSecret100
-)
-authUSDT_01 = session_auth_01.get_wallet_balance()
-posUSDT_01 = session_auth_01.my_position()
-
-
-RATELIMIT_01 = authUSDT_01['rate_limit']
-STATELIMIT_01 = authUSDT_01['rate_limit_status']
-RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
-#print(STATELIMIT_01)
 
 EQUITY_01 = authUSDT_01['result']['USDT']['equity']
 NRZ_01 = authUSDT_01['result']['USDT']['unrealised_pnl']
@@ -856,11 +864,11 @@ col1, col2, col3 = st.columns(3)
 # col2.metric(col8_selection, col8_price, col8_percent)
 # col3.metric(col9_selection, col9_price, col9_percent)
 
-st.header('**All Price**')
-st.dataframe(df)
+# st.header('**All Price**')
+# st.dataframe(df)
 
-st.markdown("""
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-""", unsafe_allow_html=True)
+# st.markdown("""
+# <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+# """, unsafe_allow_html=True)
