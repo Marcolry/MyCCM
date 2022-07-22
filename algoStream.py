@@ -54,7 +54,7 @@ STATELIMIT_00 = authUSDT_00['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 
-st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
+#st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
 
 ##-----------------------------------------------------------------------> 01 - Algo
 
@@ -71,11 +71,11 @@ RATELIMIT_01 = authUSDT_01['rate_limit']
 STATELIMIT_01 = authUSDT_01['rate_limit_status']
 RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
 
-st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+#st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
 ###################################################################################################### ALL RATE REQUEST
 
-st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + '**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + ' & ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
 ###################################################################################################### API 00Marc
 
