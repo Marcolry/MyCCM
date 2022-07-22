@@ -363,39 +363,46 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(11):
     if i == 0:
         with col0_01:
+            st.info("All Account")
             st.info("00 - Feli")
     if i == 1:
         with col1_01:
+            st.info("Symbol")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['symbol']))
     if i == 2:
         with col2_01:
+            st.info("Side")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['side']))
     if i == 3:
         with col3_01:
+            st.info("Size")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['size']))
     if i == 4:
         with col4_01:
+            st.info("Unrealised PNL")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['unrealised_pnl']))
     if i == 5:
         with col5_01:
+            st.info("Realized PNL")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['cum_realised_pnl']))
     if i == 6:
         with col6_01:
+            st.info("Entry Price")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
@@ -424,46 +431,39 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(11):
     if i == 0:
         with col0_01:
-            st.info("All Account")
             st.info("00 - Algo")
     if i == 1:
         with col1_01:
-            st.info("Symbol")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['symbol']))
     if i == 2:
         with col2_01:
-            st.info("Side")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['side']))
     if i == 3:
         with col3_01:
-            st.info("Size")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['size']))
     if i == 4:
         with col4_01:
-            st.info("Unrealised PNL")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['unrealised_pnl']))
     if i == 5:
         with col5_01:
-            st.info("Realized PNL")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['cum_realised_pnl']))
     if i == 6:
         with col6_01:
-            st.info("Entry Price")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
