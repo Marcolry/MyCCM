@@ -351,62 +351,57 @@ st.markdown('''# **Detail: 👨🏽‍🎓 01 - Algo**
 ##-----------------------------------------------------------------------> 01 - Algo
 
 
-col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01 = st.columns(11)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01 = st.columns(11)
 
 for i in range(11):
     if i == 0:
+        with col7_01:
+            st.info("Account")
+            st.info("🏽‍🎓 01 - Algo")
+    if i == 1:
         with col1_01:
             st.info("Symbol")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['symbol']))
-    if i == 1:
+    if i == 2:
         with col2_01:
             st.info("Side")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['side']))
-    if i == 2:
+    if i == 3:
         with col3_01:
             st.info("Size")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['size']))
-    if i == 3:
+    if i == 4:
         with col4_01:
             st.info("Unrealised PNL")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['unrealised_pnl']))
-    if i == 4:
+    if i == 5:
         with col5_01:
             st.info("Realized PNL")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['cum_realised_pnl']))
-    if i == 5:
+    if i == 6:
         with col6_01:
             st.info("Entry Price")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['entry_price']))
-    if i == 6:
-        with col7_01:
-            st.info("Last Price")
-            # st.info(str(df[18]['last_price']))
-            # st.info(str(df[18]['last_price']))
-            # st.info(str(df[64]['last_price']))
-            # st.info(str(df[64]['last_price']))
-            # st.info(str(df[160]['last_price']))
-            # st.info(str(df[160]['last_price']))
-            # st.info(str(df[174]['last_price']))
-            # st.info(str(df[174]['last_price']))
+
+
     # if i == 7:
     #     with col8_01:
     #         st.info("🫶"' : ' + str(nbLong_01) + ' / ' + str(nbShort_01) + ' (' + str(round((nbLong_01/nbTrade_01)*100)) + '/' + str(round((nbShort_01/nbTrade_01)*100)) + '%)')
