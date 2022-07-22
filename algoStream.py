@@ -356,7 +356,7 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(11):
     if i == 0:
         with col0_01:
-            st.info("Account")
+            st.info("All Account")
             st.info("00 - Algo")
     if i == 1:
         with col1_01:
