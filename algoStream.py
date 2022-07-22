@@ -392,7 +392,7 @@ for i in range(11):
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_00['result'][x]['data']['unrealised_pnl']))
+                    st.info(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
             st.info("Realized PNL")
@@ -455,7 +455,7 @@ for i in range(11):
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_01['result'][x]['data']['unrealised_pnl']))
+                    st.info(str(round(posUSDT_01['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
             for x in a:
