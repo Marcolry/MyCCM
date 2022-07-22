@@ -107,16 +107,16 @@ for i in range(11):
             st.info("💀 In Play 💀")
     if i == 7:
         with col8:
-            st.info("🫶 Long/Short 🫶")
+            st.info("🫶 L/S 🫶")
     if i == 8:
         with col9:
-            st.info("#️⃣ Nb Trade #️⃣")
+            st.info("#️⃣ Nb. T #️⃣")
     if i == 9:
         with col10:
-            st.info('〽️ Performance 〽️')
+            st.info('〽️ Perf. 〽️')
     if i == 10:
         with col11:
-            st.info('✂️ Commission ✂️')
+            st.info('✂️ Com. ✂️')
 
 
 
