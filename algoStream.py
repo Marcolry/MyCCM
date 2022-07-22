@@ -73,9 +73,9 @@ RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
 
 st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
+###################################################################################################### ALL RATE REQUEST
 
-
-
+st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + '**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
 ###################################################################################################### API 00Marc
 
