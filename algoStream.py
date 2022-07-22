@@ -395,7 +395,7 @@ for i in range(11):
                     if posUSDT_00['result'][x]['data']['unrealised_pnl'] >= 0:
                         st.info(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
                     else: 
-                        st.info(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
+                        st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
             st.info("Realized PNL")
