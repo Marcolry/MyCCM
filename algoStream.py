@@ -393,7 +393,7 @@ for i in range(11):
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     if posUSDT_00['result'][x]['data']['unrealised_pnl'] >= 0:
-                    st.sucess(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
+                    st.info(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
                     else: 
                     st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
