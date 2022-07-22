@@ -25,8 +25,8 @@ ALL = list(range(0, 349)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
 
-#df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
-# print(df['last_price'])
+df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
+#print(df['last_price'])
 
 st.markdown('''# **AlgoFinance AUM**
 ''')
@@ -864,8 +864,8 @@ for i in range(11):
 # col2.metric(col8_selection, col8_price, col8_percent)
 # col3.metric(col9_selection, col9_price, col9_percent)
 
-# st.header('**All Price**')
-# st.dataframe(df)
+st.header('**All Price**')
+st.dataframe(df)
 
 # st.markdown("""
 # <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
