@@ -568,13 +568,13 @@ for i in range(11):
             st.info(' 📘 Id 📘 ')
     if i == 1:
         with tol2:
-            st.info("💰 Symbole 💰")
+            st.info("🔗 Symbole 🔗")
     if i == 2:
         with tol3:
             st.info("⬇️ Date ⬇️")
     if i == 3:
         with tol4:
-            st.info("💸 Side 💸")
+            st.info("🚕 Side 🚕")
     if i == 4:
         with tol5:
             st.info("💸 ...% 💸")
@@ -583,16 +583,16 @@ for i in range(11):
             st.info("💸 PNL 💸")
     if i == 6:
         with tol7:
-            st.info("💀 Entry Price 💀")
+            st.info("💰 Entry Price 💰")
     if i == 7:
         with tol8:
-            st.info("🫶 Exit Price 🫶")
+            st.info("💰 Exit Price 💰")
     if i == 8:
         with tol9:
-            st.info("💲IN💲")
+            st.info("💲 IN 💲")
     if i == 9:
         with tol10:
-            st.info('💲OUT💲')
+            st.info('💲 OUT 💲')
     if i == 10:
         with tol11:
             st.info('✂️ EMPTY ✂️')
