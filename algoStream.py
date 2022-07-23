@@ -613,10 +613,10 @@ for t in range(11):
                             st.info(str(authPNL_01["result"]["data"][i]["id"]))
                     if t == 1:
                         with tol2:
-                            st.info("🔗 Symbole 🔗")
+                            st.info(str(authPNL_01["result"]["data"][i]["symbol"]))
                     if t == 2:
                         with tol3:
-                            st.info("⬇️ Date ⬇️")
+                            st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])))
                     if t == 3:
                         with tol4:
                             st.info("🚕 Side 🚕")
