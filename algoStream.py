@@ -600,7 +600,7 @@ for i in range(11):
             st.info('✂️ EMPTY ✂️')
 
 
-
+for t in range(11):
 for x in a:
     try:
         ii = str(posUSDT_01['result'][x]['data']['symbol'])
@@ -608,7 +608,7 @@ for x in a:
         for i in range(0,len(authPNL_01)):
             #print(authPNL_01["result"]["data"][i]["created_at"])
             if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
-                if i == 5:
+                if t == 5:
                     with tol6:
                         st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
     except:
