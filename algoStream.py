@@ -589,10 +589,10 @@ for i in range(11):
             st.info("🫶 Exit Price 🫶")
     if i == 8:
         with tol9:
-            st.info("#️⃣ $ IN $ #️⃣")
+            st.info("💲IN💲")
     if i == 9:
         with tol10:
-            st.info('〽️ $ OUT $ 〽️')
+            st.info('💲OUT💲')
     if i == 10:
         with tol11:
             st.info('✂️ EMPTY ✂️')
