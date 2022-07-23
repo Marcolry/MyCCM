@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 #import websocket
 st.set_page_config(layout="wide")
 import pandas as pd
@@ -6,17 +7,18 @@ import config
 import bybit
 from pybit import usdt_perpetual
 import array as arr
+import numpy as np
 
 
 ############################################################################################# IP
 import socket
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
-print('My local IP is: ' + local_ip)
-from requests import get
-ip = get('https://api.ipify.org').text
-print(f'My public IP is: {ip}')
-st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
+# hostname = socket.gethostname()
+# local_ip = socket.gethostbyname(hostname)
+# print('My local IP is: ' + local_ip)
+# from requests import get
+# ip = get('https://api.ipify.org').text
+# print(f'My public IP is: {ip}')
+# st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
 
 
 #############################################################################################
@@ -51,6 +53,7 @@ STATELIMIT_00 = authUSDT_00['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 
+
 #st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
 
 ##-----------------------------------------------------------------------> 01 - Algo
@@ -67,6 +70,8 @@ posUSDT_01 = session_auth_01.my_position()
 RATELIMIT_01 = authUSDT_01['rate_limit']
 STATELIMIT_01 = authUSDT_01['rate_limit_status']
 RESETLIMIT_01 = authUSDT_01['rate_limit_reset_ms']
+print(str(STATELIMIT_01) + '------------------------------------------------------------------------------->')
+
 
 #st.write('**Request Limit:** ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
 
@@ -497,14 +502,125 @@ for i in range(11):
 
 
 
+#print(session_auth_01.closed_profit_and_loss(
+#  symbol="ADAUSDT"
+#))
+# for x in a:
+#     try:
+#         authPNL_01 = session_auth_01.closed_profit_and_loss(symbol=posUSDT_01['result'][x]['data']['symbol'])
+#         print(posUSDT_01['result'][x]['data']['symbol'])
+#         for i in authPNL_01["result"]["data"][x]:
+#                 print(i)
+#                 #print(posUSDT_01['result'][x]['data'])
+#     except:
+#         pass
+
+
+# df = pd.DataFrame(
+#     np.random.randn(10, 3),
+#     columns=('ver_%d' % i for i in range(3)))
+#
+# # for i in range(3):
+# #     if i == 0:
+# #         with ver_0:
+# #             st.text("Hello")
+# #     if i == 1:
+# #         with ver_1:
+# #             st.text("Hello2")
+# #     if i == 2:
+# #         with ver_2:
+# #             st.text("Hello")
+#
+# st.dataframe(df)
+
+from datetime import datetime, date, time, timezone
+#dt = datetime.datetime.fromtimestamp(1658534410)
+#print(dt)
+
+#dt = datetime(2019, 5, 18, 15, 17).isoformat()
+
+
+now = datetime.now() # current date and time
+Unix = datetime.timestamp(now)
+UnixY = datetime.timestamp(now) - 86400
+#print(now)
+#print(Unix)
+#print(UnixY)
+
+dt2 = datetime.fromtimestamp(UnixY)
+#print(dt)
+print(dt2)
+
+#print(dt.strftime("%A, %d. %B %Y %I:%M%p"))
+
+for x in a:
+    try:
+        ii = str(posUSDT_01['result'][x]['data']['symbol'])
+        authPNL_01 = session_auth_01.closed_profit_and_loss(symbol=(ii))
+        for i in range(0,len(authPNL_01)):
+            #print(authPNL_01["result"]["data"][i]["created_at"])
+            if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
+                print("Id: " + str(authPNL_01["result"]["data"][i]["id"]) + " Time: " + str(authPNL_01["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_01["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_01["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_01["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_01["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_01["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_01["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_01["result"]["data"][i]["cum_exit_value"]))
+                st.text(str(("Id: " + str(authPNL_01["result"]["data"][i]["id"]) + " Time: " + str(authPNL_01["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_01["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_01["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_01["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_01["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_01["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_01["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_01["result"]["data"][i]["cum_exit_value"]))))
+                if str(authPNL_01["result"]["data"][i]["side"]) == "Buy":
+                    print(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100)-0.12),2)) + "%")
+                    st.text(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
+                elif str(authPNL_01["result"]["data"][i]["side"]) == "Sell":
+                    print(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * 100)-0.12),2)) + "%")
+                    st.text(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * 100) - 0.12), 2)) + "%")
+                else:
+                    print("N/A")
+                    st.text("N/A")
+    except:
+        pass
 
 
 
 
 
 
+        #print(authPNL_01["result"]["data"][i]["created_at"])
+        #print(authPNL_01["result"]["data"][i]["symbol"])
+        #print(authPNL_01["result"]["data"][i]["side"])
+        #print(authPNL_01["result"]["data"][i]["avg_entry_price"])
+        #print(authPNL_01["result"]["data"][i]["avg_exit_price"])
+        #print(authPNL_01["result"]["data"][i]["closed_pnl"])
+        #print(authPNL_01["result"]["data"][i]["cum_entry_value"])
+        #print(authPNL_01["result"]["data"][i]["cum_exit_value"])
 
 
+
+
+# authPNL_02 = session_auth_01.closed_profit_and_loss(symbol="XLMUSDT")
+# for i in authPNL_02["result"]["data"]:
+#     print(i)
+# authPNL_03 = session_auth_01.closed_profit_and_loss(symbol="BTCUSDT")
+# for i in authPNL_03["result"]["data"]:
+#     print(i)
+# authPNL_04 = session_auth_01.closed_profit_and_loss(symbol="DASHUSDT")
+# for i in authPNL_04["result"]["data"]:
+#     print(i)
+# authPNL_05 = session_auth_01.closed_profit_and_loss(symbol="XRPUSDT")
+# for i in authPNL_05["result"]["data"]:
+#     print(i)
+# authPNL_06 = session_auth_01.closed_profit_and_loss(symbol="DOGEUSDT")
+# for i in authPNL_06["result"]["data"]:
+#     print(i)
+# authPNL_07 = session_auth_01.closed_profit_and_loss(symbol="TLMUSDT")
+# for i in authPNL_07["result"]["data"]:
+#     print(i)
+# authPNL_09 = session_auth_01.closed_profit_and_loss(symbol="GMTUSDT")
+# for i in authPNL_09["result"]["data"]:
+#     print(i)
+# authPNL_10 = session_auth_01.closed_profit_and_loss(symbol="HOTUSDT")
+# for i in authPNL_10["result"]["data"]:
+#     print(i)
+# authPNL_11 = session_auth_01.closed_profit_and_loss(symbol="MTLUSDT")
+# for i in authPNL_11["result"]["data"]:
+#     print(i)
+# authPNL_12 = session_auth_01.closed_profit_and_loss(symbol="LINKUSDT")
+# for i in authPNL_12["result"]["data"]:
+#     print(i)
 
 
 
@@ -569,7 +685,7 @@ for i in range(11):
 
 
 
-#for x in a:
+# for x in a:
 #    print(x)
 #    print(posUSDT_01['result'][x]['data']['symbol'])
 
@@ -612,7 +728,48 @@ for i in range(11):
 #    handle_message, "BTCUSDT"
 #
 
+################################################################
 
+
+
+
+# for x in a:
+#     try:
+#
+#         print(posUSDT_01['result'][x]['data']['symbol'])
+#         for i in authPNL_01["result"]["data"][x]:
+#                 print(i)
+#                 #print(posUSDT_01['result'][x]['data'])
+#     except:
+#         pass
+
+#print(session_auth_01.closed_profit_and_loss(symbol="ADAUSDT")["result"]["data"][0]["closed_pnl"])
+
+#print(ALL)
+
+#
+# for x in a:
+# #   print(x)
+#    print(posUSDT_01['result'][x]['data']['symbol'])
+
+##################################################################
+
+# year = now.strftime("%Y")
+# print("year:", year)
+#
+# month = now.strftime("%m")
+# print("month:", month)
+#
+# day = now.strftime("%d")
+# print("day:", day)
+#
+# time = now.strftime("%H:%M:%S")
+# print("time:", time)
+#
+# date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+# print("date and time:",date_time)
+
+##################################################################
 
 # user_id
 # symbol
