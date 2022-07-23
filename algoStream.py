@@ -543,12 +543,9 @@ from datetime import datetime, date, time, timezone
 
 #dt = datetime(2019, 5, 18, 15, 17).isoformat()
 
-nubHours = st.number_input('Insert a number', value=24, step=1)
-#st.write('The current number is ', number)
-
 now = datetime.now() # current date and time
 Unix = datetime.timestamp(now)
-UnixY = datetime.timestamp(now) - nubHours*3600
+UnixY = datetime.timestamp(now) - 2*3600
 #print(now)
 #print(Unix)
 #print(UnixY)
