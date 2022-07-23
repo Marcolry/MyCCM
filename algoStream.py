@@ -610,13 +610,13 @@ for t in range(11):
                 if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
                     if t == 0:
                         with tol1:
-                            st.info(str(authPNL_01["result"]["data"][i]["id"]))
+                            st.info(str(authPNL_01["result"]["data"][t]["id"]))
                     if t == 1:
                         with tol2:
-                            st.info(str(authPNL_01["result"]["data"][i]["symbol"]))
+                            st.info(str(authPNL_01["result"]["data"][t]["symbol"]))
                     if t == 2:
                         with tol3:
-                            st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])))
+                            st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][t]["created_at"])))
                     if t == 3:
                         with tol4:
                             st.info("🚕 Side 🚕")
