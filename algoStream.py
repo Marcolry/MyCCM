@@ -608,9 +608,40 @@ for t in range(11):
             for i in range(0,len(authPNL_01)):
                 #print(authPNL_01["result"]["data"][i]["created_at"])
                 if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
+                    if i == 0:
+                        with tol1:
+                            st.info(' 📘 Id 📘 ')
+                    if i == 1:
+                        with tol2:
+                            st.info("🔗 Symbole 🔗")
+                    if i == 2:
+                        with tol3:
+                            st.info("⬇️ Date ⬇️")
+                    if i == 3:
+                        with tol4:
+                            st.info("🚕 Side 🚕")
+                    if i == 4:
+                        with tol5:
+                            st.info("💸 ...% 💸")
                     if t == 5:
                         with tol6:
                             st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
+                    if i == 6:
+                        with tol7:
+                            st.info("💰 Entry Price 💰")
+                    if i == 7:
+                        with tol8:
+                            st.info("💰 Exit Price 💰")
+                    if i == 8:
+                        with tol9:
+                            st.info("💲 IN 💲")
+                    if i == 9:
+                        with tol10:
+                            st.info('💲 OUT 💲')
+                    if i == 10:
+                        with tol11:
+                            st.info('✂️ EMPTY ✂️')
+
         except:
             pass
 
