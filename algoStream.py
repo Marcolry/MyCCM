@@ -539,6 +539,8 @@ from datetime import datetime, date, time, timezone
 
 #dt = datetime(2019, 5, 18, 15, 17).isoformat()
 
+number = st.number_input('Insert a number')
+st.write('The current number is ', number)
 
 now = datetime.now() # current date and time
 Unix = datetime.timestamp(now)
