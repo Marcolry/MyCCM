@@ -564,37 +564,37 @@ tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(
 
 for i in range(11):
     if i == 0:
-        with col1:
+        with tol1:
             st.info(' 📘 ')
     if i == 1:
-        with col2:
+        with tol2:
             st.info("💰 Equity 💰")
     if i == 2:
-        with col3:
+        with tol3:
             st.info("⬇️ Deposit ⬇️")
     if i == 3:
-        with col4:
+        with tol4:
             st.info("💸 Bénéfice 💸")
     if i == 4:
-        with col5:
+        with tol5:
             st.info("💸 Realized 💸")
     if i == 5:
-        with col6:
+        with tol6:
             st.info("💸 Unrealized 💸")
     if i == 6:
-        with col7:
+        with tol7:
             st.info("💀 In Play 💀")
     if i == 7:
-        with col8:
+        with tol8:
             st.info("🫶 L/S 🫶")
     if i == 8:
-        with col9:
+        with tol9:
             st.info("#️⃣ Nb. T #️⃣")
     if i == 9:
-        with col10:
+        with tol10:
             st.info('〽️ Perf. 〽️')
     if i == 10:
-        with col11:
+        with tol11:
             st.info('✂️ Com. ✂️')
 
 
