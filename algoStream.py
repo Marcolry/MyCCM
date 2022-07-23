@@ -610,7 +610,7 @@ for t in range(11):
                 if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
                     if t == 0:
                         with tol1:
-                            st.info(' 📘 Id 📘 ')
+                            st.info(str(authPNL_01["result"]["data"][i]["id"]))
                     if t == 1:
                         with tol2:
                             st.info("🔗 Symbole 🔗")
