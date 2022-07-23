@@ -9,7 +9,7 @@ from pybit import usdt_perpetual
 import array as arr
 import numpy as np
 
-
+print("hello")
 ############################################################################################# IP
 import socket
 # hostname = socket.gethostname()
@@ -545,7 +545,7 @@ from datetime import datetime, date, time, timezone
 
 now = datetime.now() # current date and time
 Unix = datetime.timestamp(now)
-UnixY = datetime.timestamp(now) - 2*3600
+UnixY = datetime.timestamp(now) - 24*3600
 #print(now)
 #print(Unix)
 #print(UnixY)
@@ -555,6 +555,63 @@ dt2 = datetime.fromtimestamp(UnixY)
 print(dt2)
 
 #print(dt.strftime("%A, %d. %B %Y %I:%M%p"))
+
+
+
+############################################################################################################ ALL TRADES
+
+tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(11)
+
+for i in range(11):
+    if i == 0:
+        with col1:
+            st.info(' 📘 ')
+    if i == 1:
+        with col2:
+            st.info("💰 Equity 💰")
+    if i == 2:
+        with col3:
+            st.info("⬇️ Deposit ⬇️")
+    if i == 3:
+        with col4:
+            st.info("💸 Bénéfice 💸")
+    if i == 4:
+        with col5:
+            st.info("💸 Realized 💸")
+    if i == 5:
+        with col6:
+            st.info("💸 Unrealized 💸")
+    if i == 6:
+        with col7:
+            st.info("💀 In Play 💀")
+    if i == 7:
+        with col8:
+            st.info("🫶 L/S 🫶")
+    if i == 8:
+        with col9:
+            st.info("#️⃣ Nb. T #️⃣")
+    if i == 9:
+        with col10:
+            st.info('〽️ Perf. 〽️')
+    if i == 10:
+        with col11:
+            st.info('✂️ Com. ✂️')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 for x in a:
     try:
