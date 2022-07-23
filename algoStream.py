@@ -563,63 +563,54 @@ print(dt2)
 tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(11)
 
 
+
+for i in range(11):
+    if i == 0:
+        with tol1:
+            st.info(' 📘 Id 📘 ')
+    if i == 1:
+        with tol2:
+            st.info("🔗 Symbole 🔗")
+    if i == 2:
+        with tol3:
+            st.info("⬇️ Date ⬇️")
+    if i == 3:
+        with tol4:
+            st.info("🚕 Side 🚕")
+    if i == 4:
+        with tol5:
+            st.info("💸 ...% 💸")
+    if i == 5:
+        with tol6:
+            st.info("💸 PNL 💸")
+    if i == 6:
+        with tol7:
+            st.info("💰 Entry Price 💰")
+    if i == 7:
+        with tol8:
+            st.info("💰 Exit Price 💰")
+    if i == 8:
+        with tol9:
+            st.info("💲 IN 💲")
+    if i == 9:
+        with tol10:
+            st.info('💲 OUT 💲')
+    if i == 10:
+        with tol11:
+            st.info('✂️ EMPTY ✂️')
+
+
+
 for x in a:
     try:
         ii = str(posUSDT_01['result'][x]['data']['symbol'])
         authPNL_01 = session_auth_01.closed_profit_and_loss(symbol=(ii))
         for i in range(0,len(authPNL_01)):
+            #print(authPNL_01["result"]["data"][i]["created_at"])
             if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
-                for i in range(11):
-                    if i == 0:
-                        with tol1:
-                            st.info(' 📘 Id 📘 ')
-                    if i == 1:
-                        with tol2:
-                            st.info("🔗 Symbole 🔗")
-                    if i == 2:
-                        with tol3:
-                            st.info("⬇️ Date ⬇️")
-                    if i == 3:
-                        with tol4:
-                            st.info("🚕 Side 🚕")
-                    if i == 4:
-                        with tol5:
-                            st.info("💸 ...% 💸")
-                            if str(authPNL_01["result"]["data"][i]["side"]) == "Buy":
-                                print(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100)-0.12),2)) + "%")
-                                st.text(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
-                            elif str(authPNL_01["result"]["data"][i]["side"]) == "Sell":
-                                print(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * 100)-0.12),2)) + "%")
-                                st.text(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * 100) - 0.12), 2)) + "%")
-                    if i == 5:
-                        with tol6:
-                            st.info("💸 PNL 💸")
-                    if i == 6:
-                        with tol7:
-                            st.info("💰 Entry Price 💰")
-                    if i == 7:
-                        with tol8:
-                            st.info("💰 Exit Price 💰")
-                    if i == 8:
-                        with tol9:
-                            st.info("💲 IN 💲")
-                    if i == 9:
-                        with tol10:
-                            st.info('💲 OUT 💲')
-                    if i == 10:
-                        with tol11:
-                            st.info('✂️ EMPTY ✂️')
-    except:
-        pass
-
-
-
-
-
-
-
-
-
+                if i == 5:
+                    with tol6:
+                        st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
 
 
 
