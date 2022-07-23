@@ -9,7 +9,7 @@ from pybit import usdt_perpetual
 import array as arr
 import numpy as np
 
-print("hello")
+print("het")
 ############################################################################################# IP
 import socket
 # hostname = socket.gethostname()
@@ -565,37 +565,37 @@ tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(
 for i in range(11):
     if i == 0:
         with tol1:
-            st.info(' 📘 ')
+            st.info(' 📘 Id ')
     if i == 1:
         with tol2:
-            st.info("💰 Equity 💰")
+            st.info("💰 Symbole 💰")
     if i == 2:
         with tol3:
-            st.info("⬇️ Deposit ⬇️")
+            st.info("⬇️ Date ⬇️")
     if i == 3:
         with tol4:
-            st.info("💸 Bénéfice 💸")
+            st.info("💸 Side 💸")
     if i == 4:
         with tol5:
-            st.info("💸 Realized 💸")
+            st.info("💸 ...% 💸")
     if i == 5:
         with tol6:
-            st.info("💸 Unrealized 💸")
+            st.info("💸 PNL 💸")
     if i == 6:
         with tol7:
-            st.info("💀 In Play 💀")
+            st.info("💀 Entry Price 💀")
     if i == 7:
         with tol8:
-            st.info("🫶 L/S 🫶")
+            st.info("🫶 Exit Price 🫶")
     if i == 8:
         with tol9:
-            st.info("#️⃣ Nb. T #️⃣")
+            st.info("#️⃣ $IN$ #️⃣")
     if i == 9:
         with tol10:
-            st.info('〽️ Perf. 〽️')
+            st.info('〽️ $OUT$ 〽️')
     if i == 10:
         with tol11:
-            st.info('✂️ Com. ✂️')
+            st.info('✂️ EMPTY ✂️')
 
 
 
