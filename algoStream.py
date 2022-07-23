@@ -601,18 +601,18 @@ for i in range(11):
 
 
 for t in range(11):
-for x in a:
-    try:
-        ii = str(posUSDT_01['result'][x]['data']['symbol'])
-        authPNL_01 = session_auth_01.closed_profit_and_loss(symbol=(ii))
-        for i in range(0,len(authPNL_01)):
-            #print(authPNL_01["result"]["data"][i]["created_at"])
-            if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
-                if t == 5:
-                    with tol6:
-                        st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
-    except:
-        pass
+    for x in a:
+        try:
+            ii = str(posUSDT_01['result'][x]['data']['symbol'])
+            authPNL_01 = session_auth_01.closed_profit_and_loss(symbol=(ii))
+            for i in range(0,len(authPNL_01)):
+                #print(authPNL_01["result"]["data"][i]["created_at"])
+                if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
+                    if t == 5:
+                        with tol6:
+                            st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
+        except:
+            pass
 
 
 
