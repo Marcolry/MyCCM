@@ -611,7 +611,8 @@ for x in a:
                 if i == 5:
                     with tol6:
                         st.info(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
-
+    except:
+        pass
 
 
 
