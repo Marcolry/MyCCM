@@ -533,14 +533,18 @@ for i in range(11):
 #
 # st.dataframe(df)
 
+##############################################################--------------------------------->
+
+st.header('**All Trades**')
+
 from datetime import datetime, date, time, timezone
 #dt = datetime.datetime.fromtimestamp(1658534410)
 #print(dt)
 
 #dt = datetime(2019, 5, 18, 15, 17).isoformat()
 
-number = st.number_input('Insert a number')
-st.write('The current number is ', number)
+number = st.number_input('Insert a number', value=2, step=1)
+#st.write('The current number is ', number)
 
 now = datetime.now() # current date and time
 Unix = datetime.timestamp(now)
