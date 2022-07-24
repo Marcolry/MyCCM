@@ -9,7 +9,6 @@ from pybit import usdt_perpetual
 import array as arr
 import numpy as np
 
-print("het")
 ############################################################################################# IP
 import socket
 # hostname = socket.gethostname()
