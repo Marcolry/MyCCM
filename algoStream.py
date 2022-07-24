@@ -26,7 +26,7 @@ ALL = list(range(0, 349)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
 
-st.markdown('''# **AlgoFinance AUM ttt**
+st.markdown('''# **AlgoFinance AUM tttt**
 ''')
 #st.header('**Summary**')
 
