@@ -45,7 +45,7 @@ session_auth_00 = usdt_perpetual.HTTP(
 )
 
 #authUSDT_00 = session_auth_00.get_wallet_balance()
-posUSDT_00 = session_auth_00.my_position()
+#posUSDT_00 = session_auth_00.my_position()
 
 
 RATELIMIT_00 = authUSDT_00['rate_limit']
