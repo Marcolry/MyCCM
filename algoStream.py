@@ -48,10 +48,10 @@ session_auth_00 = usdt_perpetual.HTTP(
 #posUSDT_00 = session_auth_00.my_position()
 
 
-RATELIMIT_00 = authUSDT_00['rate_limit']
-STATELIMIT_00 = authUSDT_00['rate_limit_status']
-RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
-print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
+# RATELIMIT_00 = authUSDT_00['rate_limit']
+# STATELIMIT_00 = authUSDT_00['rate_limit_status']
+# RESETLIMIT_00 = authUSDT_00['rate_limit_reset_ms']
+# print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 
 
 #st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
