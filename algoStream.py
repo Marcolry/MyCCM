@@ -549,10 +549,10 @@ UnixY = datetime.timestamp(now) - 12*3600
 #print(now)
 #print(Unix)
 #print(UnixY)
-
+dt1 = datetime.fromtimestamp(Unix)
 dt2 = datetime.fromtimestamp(UnixY)
 #print(dt)
-print(dt2)
+print(dt1)
 
 #print(dt.strftime("%A, %d. %B %Y %I:%M%p"))
 
@@ -652,32 +652,26 @@ st.text("Begin !")
 
 
 
-
-
-
-
-
-
-# for x in a:
-#     try:
-#         ii = str(posUSDT_00['result'][x]['data']['symbol'])
-#         authPNL_00 = session_auth_00.closed_profit_and_loss(symbol=(ii))
-#         for i in range(0,len(authPNL_00)):
-#             #print(authPNL_00["result"]["data"][i]["created_at"])
-#             if authPNL_00["result"]["data"][i]["created_at"] > UnixY:
-#                 print("Id: " + str(authPNL_00["result"]["data"][i]["id"]) + " Time: " + str(authPNL_00["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_00["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_00["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_00["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_00["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_00["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_00["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_00["result"]["data"][i]["cum_exit_value"]))
-#                 st.text(str(("Id: " + str(authPNL_00["result"]["data"][i]["id"]) + " Time: " + str(authPNL_00["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_00["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_00["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_00["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_00["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_00["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_00["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_00["result"]["data"][i]["cum_exit_value"]))))
-#                 if str(authPNL_00["result"]["data"][i]["side"]) == "Buy":
-#                     print(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * -100)-0.12),2)) + "%")
-#                     st.text(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
-#                 elif str(authPNL_00["result"]["data"][i]["side"]) == "Sell":
-#                     print(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * 100)-0.12),2)) + "%")
-#                     st.text(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * 100) - 0.12), 2)) + "%")
-#                 else:
-#                     print("N/A")
-#                     st.text("N/A")
-#     except:
-#         pass
+for x in a:
+    try:
+        ii = str(posUSDT_00['result'][x]['data']['symbol'])
+        authPNL_00 = session_auth_00.closed_profit_and_loss(symbol=(ii))
+        for i in range(0,len(authPNL_00)):
+            #print(authPNL_00["result"]["data"][i]["created_at"])
+            if authPNL_00["result"]["data"][i]["created_at"] > UnixY:
+                print("Id: " + str(authPNL_00["result"]["data"][i]["id"]) + " Time: " + str(authPNL_00["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_00["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_00["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_00["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_00["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_00["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_00["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_00["result"]["data"][i]["cum_exit_value"]))
+                st.text(str(("Id: " + str(authPNL_00["result"]["data"][i]["id"]) + " Time: " + str(authPNL_00["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_00["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_00["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_00["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_00["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_00["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_00["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_00["result"]["data"][i]["cum_exit_value"]))))
+                if str(authPNL_00["result"]["data"][i]["side"]) == "Buy":
+                    print(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * -100)-0.12),2)) + "%")
+                    st.text(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
+                elif str(authPNL_00["result"]["data"][i]["side"]) == "Sell":
+                    print(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * 100)-0.12),2)) + "%")
+                    st.text(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * 100) - 0.12), 2)) + "%")
+                else:
+                    print("N/A")
+                    st.text("N/A")
+    except:
+        pass
 
 
 print("Done !")
