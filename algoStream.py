@@ -43,7 +43,8 @@ session_auth_00 = usdt_perpetual.HTTP(
     api_key=config.apiKey1000,
     api_secret=config.apiSecret1000
 )
-authUSDT_00 = session_auth_00.get_wallet_balance()
+
+#authUSDT_00 = session_auth_00.get_wallet_balance()
 posUSDT_00 = session_auth_00.my_position()
 
 
