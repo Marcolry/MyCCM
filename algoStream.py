@@ -26,7 +26,7 @@ ALL = list(range(0, 349)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
 
-st.markdown('''# **AlgoFinance AUM tttt**
+st.markdown('''# **AlgoFinance AUM**
 ''')
 #st.header('**Summary**')
 
@@ -545,7 +545,7 @@ from datetime import datetime, date, time, timezone
 
 now = datetime.now() # current date and time
 Unix = datetime.timestamp(now)
-UnixY = datetime.timestamp(now) - 96*3600
+UnixY = datetime.timestamp(now) - 8*3600
 #print(now)
 #print(Unix)
 #print(UnixY)
