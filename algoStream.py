@@ -26,7 +26,7 @@ ALL = list(range(0, 349)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
 
-st.markdown('''# **AlgoFinance AUM**
+st.markdown('''# **AlgoFinance AUM ttt**
 ''')
 #st.header('**Summary**')
 
@@ -545,7 +545,7 @@ from datetime import datetime, date, time, timezone
 
 now = datetime.now() # current date and time
 Unix = datetime.timestamp(now)
-UnixY = datetime.timestamp(now) - 8*3600
+UnixY = datetime.timestamp(now) - 96*3600
 #print(now)
 #print(Unix)
 #print(UnixY)
@@ -646,7 +646,8 @@ tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(
 #             pass
 
 
-
+print("Begin !")
+st.text("Begin !")
 
 for x in a:
     try:
