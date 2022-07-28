@@ -264,7 +264,7 @@ col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01
 for i in range(11):
     if i == 0:
         with col1_01:
-            st.info('👨🏽‍🎓'' 01Algo')
+            st.info('👨🏽‍🎓'' 01Marc')
     if i == 1:
         with col2_01:
             st.info("💰"' : ' + str(round(EQUITY_01,2)))
@@ -430,13 +430,13 @@ for i in range(11):
 
 
 
-#st.markdown('''# **Detail: 👨🏽‍🎓 01 - Algo**
+#st.markdown('''# **Detail: 👨🏽‍🎓 01 - Marc**
 #''')
 
 ##########################
 
 
-##-----------------------------------------------------------------------> 01 - Algo
+##-----------------------------------------------------------------------> 01 - Marc
 
 
 col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01 = st.columns(11)
@@ -444,7 +444,7 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(11):
     if i == 0:
         with col0_01:
-            st.info("00 - Algo")
+            st.info("00 - Marc")
     if i == 1:
         with col1_01:
             for x in a:
@@ -654,19 +654,19 @@ st.text("Begin !")
 
 for x in a:
     try:
-        ii = str(posUSDT_00['result'][x]['data']['symbol'])
-        authPNL_00 = session_auth_00.closed_profit_and_loss(symbol=(ii))
-        for i in range(0,len(authPNL_00)):
+        ii = str(posUSDT_01['result'][x]['data']['symbol'])
+        authPNL_01 = session_auth_01.closed_profit_and_loss(symbol=(ii))
+        for i in range(0,len(authPNL_01)):
             #print(authPNL_00["result"]["data"][i]["created_at"])
-            if authPNL_00["result"]["data"][i]["created_at"] > UnixY:
-                print("Id: " + str(authPNL_00["result"]["data"][i]["id"]) + " Time: " + str(authPNL_00["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_00["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_00["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_00["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_00["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_00["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_00["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_00["result"]["data"][i]["cum_exit_value"]))
-                st.text(str(("Id: " + str(authPNL_00["result"]["data"][i]["id"]) + " Time: " + str(authPNL_00["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_00["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_00["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_00["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_00["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_00["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_00["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_00["result"]["data"][i]["cum_exit_value"]))))
-                if str(authPNL_00["result"]["data"][i]["side"]) == "Buy":
-                    print(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * -100)-0.12),2)) + "%")
-                    st.text(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
-                elif str(authPNL_00["result"]["data"][i]["side"]) == "Sell":
-                    print(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * 100)-0.12),2)) + "%")
-                    st.text(str(datetime.fromtimestamp(authPNL_00["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_00["result"]["data"][i]["avg_exit_price"] / authPNL_00["result"]["data"][i]["avg_entry_price"] - 1) * 100) - 0.12), 2)) + "%")
+            if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
+                print("Id: " + str(authPNL_01["result"]["data"][i]["id"]) + " Time: " + str(authPNL_01["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_01["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_01["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_01["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_01["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_01["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_01["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_01["result"]["data"][i]["cum_exit_value"]))
+                st.text(str(("Id: " + str(authPNL_01["result"]["data"][i]["id"]) + " Time: " + str(authPNL_01["result"]["data"][i]["created_at"]) + " Symbole: " + str(authPNL_01["result"]["data"][i]["symbol"]) + " Side: " + str(authPNL_01["result"]["data"][i]["side"]) + " Entry Price: " + str(authPNL_01["result"]["data"][i]["avg_entry_price"]) + " Exit Price: " + str(authPNL_01["result"]["data"][i]["avg_exit_price"]) + " PNL: " + str(authPNL_01["result"]["data"][i]["closed_pnl"]) + " $IN$: " + str(authPNL_01["result"]["data"][i]["cum_entry_value"]) + " $OUT$: " + str(authPNL_01["result"]["data"][i]["cum_exit_value"]))))
+                if str(authPNL_01["result"]["data"][i]["side"]) == "Buy":
+                    print(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100)-0.12),2)) + "%")
+                    st.text(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Short: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * -100) - 0.12), 2)) + "%")
+                elif str(authPNL_01["result"]["data"][i]["side"]) == "Sell":
+                    print(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * 100)-0.12),2)) + "%")
+                    st.text(str(datetime.fromtimestamp(authPNL_01["result"]["data"][i]["created_at"])) + " Long: " + str(round((((authPNL_01["result"]["data"][i]["avg_exit_price"] / authPNL_01["result"]["data"][i]["avg_entry_price"] - 1) * 100) - 0.12), 2)) + "%")
                 else:
                     print("N/A")
                     st.text("N/A")
