@@ -420,6 +420,12 @@ for i in range(11):
                 oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['entry_price']))
+    if i == 7:
+        with col7_01:
+            for x in a:
+                oneTrade = posUSDT_00['result'][x]['data']["free_qty"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_00['result'][x]['data']['entry_price']*posUSDT_00['result'][x]['data']['size']))
 
 
 ##-----------------------------------------------------------------------> 00 - Feli
@@ -484,6 +490,12 @@ for i in range(11):
                 oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_01['result'][x]['data']['entry_price']))
+    if i == 7:
+        with col7_01:
+            for x in a:
+                oneTrade = posUSDT_01['result'][x]['data']["free_qty"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_01['result'][x]['data']['entry_price']*posUSDT_01['result'][x]['data']['size']))
 
 
     # if i == 7:
