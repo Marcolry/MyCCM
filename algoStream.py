@@ -40,7 +40,7 @@ st.markdown('''# **AlgoFinance AUM**
 
 session_auth_00 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
-    api_key=config.apiKey1000,
+    api_key=config.apiKey00FL,
     api_secret=config.apiSecret00FL
 )
 
