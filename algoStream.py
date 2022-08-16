@@ -328,7 +328,7 @@ for i in range(13):
             st.info('✂️'' : ' + str(round(COMMISSION_01-HWM_01,2)))
     if i == 12:
         with col13_01:
-            if PART_00 == 0:
+            if PART_01 == 0:
                 st.info("🫶"' : N/A')
             else:
                 st.info('✂️'' : ' + str(round((COMMISSION_01-HWM_01)*PART_01,2)))
