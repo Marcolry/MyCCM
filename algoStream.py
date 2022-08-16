@@ -408,14 +408,14 @@ for i in range(11):
                         st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
-            st.info("Unrealised PNL")
+            st.info("Unrealised %")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     if posUSDT_00['result'][x]['data']['unrealised_pnl'] >= 0:
-                        st.success(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
+                        st.success(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl']/EQUITY_00,2)))
                     else: 
-                        st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
+                        st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl']/EQUITY_00,2)))
     if i == 6:
         with col6_01:
             st.info("Realized PNL")
