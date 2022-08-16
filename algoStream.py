@@ -408,9 +408,9 @@ st.markdown('''# **Detail:**
 # -----------------------------------------------------------------------> 00 - Feli
 # -----------------------------------------------------------------------> 00 - Feli
 
-col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01 = st.columns(11)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
 
-for i in range(11):
+for i in range(13):
     if i == 0:
         with col0_01:
             st.info("All Account")
