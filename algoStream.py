@@ -302,7 +302,7 @@ for i in range(11):
 #################
 
 
-col1T, col2T, col3T, col4T, col5T, col6T, col7T, col8T, col9T, col10T, col11T = st.columns(11)
+col1T, col2T, col3T, col4T, col5T, col6T, col7T, col8T, col9T, col10T, col11T, col12T, col13T = st.columns(13)
 
 for i in range(11):
     if i == 0:
