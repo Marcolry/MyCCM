@@ -408,20 +408,30 @@ for i in range(11):
                         st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
+            st.info("Unrealised PNL")
+            for x in a:
+                oneTrade = posUSDT_00['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    if posUSDT_00['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
+                    else: 
+                        st.error(str(round(posUSDT_00['result'][x]['data']['unrealised_pnl'],2)))
+    if i == 6:
+        with col6_01:
             st.info("Realized PNL")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['cum_realised_pnl']))
-    if i == 6:
-        with col6_01:
+    if i == 7:
+        with col7_01:
             st.info("Entry Price")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00['result'][x]['data']['entry_price']))
-    if i == 7:
-        with col7_01:
+    if i == 8:
+        with col8_01:
             st.info("Total Size")
             for x in a:
                 oneTrade = posUSDT_00['result'][x]['data']["entry_price"] != 0
