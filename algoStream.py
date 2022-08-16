@@ -20,6 +20,9 @@ import socket
 # st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
 
 
+#Config Final Array:
+# Nom, aK, aS, HWM, Ratio Com
+
 #############################################################################################
 
 ALL = list(range(0, 319)) #print(ALL)
@@ -132,13 +135,16 @@ for i in range(13):
 
 ##-----------------------------------------------------------------------> 00 - Feli
 
+HWM_00 = 0
+TX_00 = 0.3
+DIV_00 = 3
+
 EQUITY_00 = authUSDT_00['result']['USDT']['equity']
 NRZ_00 = authUSDT_00['result']['USDT']['unrealised_pnl']
 PERF_00 = authUSDT_00['result']['USDT']['cum_realised_pnl']
 
 AVAILABLE_00 = authUSDT_00['result']['USDT']['available_balance']
 INPLAY_00 = (EQUITY_00 - AVAILABLE_00)/EQUITY_00
-
 
 
 DEPOSIT_00 = EQUITY_00 - NRZ_00 - PERF_00
@@ -148,7 +154,7 @@ TAXABLE_00 = NRZ_00 + PERF_00
 #print('TO TAX: ' + str(TAXABLE_00))
 
 if TAXABLE_00 > 0:
-    COMMISSION_00 = TAXABLE_00 * TX
+    COMMISSION_00 = TAXABLE_00 * TX_00
 if TAXABLE_00 < 0:
     COMMISSION_00 = 0
 
@@ -214,7 +220,13 @@ for i in range(13):
             st.info('〽️'' : ' + str(round(PNL100_00,3)) +'%')
     if i == 10:
         with col11_00:
-            st.info('✂️'' : ' + str(round(COMMISSION_00,2)))
+            st.info('✂️'' : ' + str(round(HWM_00,2)))
+    if i == 11:
+        with col12_00:
+            st.info('✂️'' : ' + str(round(COMMISSION_00-HWM_00,2)))
+    if i == 12:
+        with col13_00:
+            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM)/DIV_00,2)))
 
 #################
 
