@@ -135,9 +135,9 @@ for i in range(13):
 
 ##-----------------------------------------------------------------------> 00 - Feli
 
-HWM_00 = 2
+HWM_00 = 0
 TX_00 = 0.3
-DIV_00 = 3
+PART_00 = 3
 
 EQUITY_00 = authUSDT_00['result']['USDT']['equity']
 NRZ_00 = authUSDT_00['result']['USDT']['unrealised_pnl']
@@ -226,13 +226,17 @@ for i in range(13):
             st.info('✂️'' : ' + str(round(COMMISSION_00-HWM_00,2)))
     if i == 12:
         with col13_00:
-            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)/DIV_00,2)))
+            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)/PART_00,2)))
 
 #################
 
 #################
 
-##-----------------------------------------------------------------------> 01 - Algo
+##-----------------------------------------------------------------------> 00 - Marc
+
+HWM_01 = 0
+TX_01 = 0.3
+PART_01 = 1
 
 EQUITY_01 = authUSDT_01['result']['USDT']['equity']
 NRZ_01 = authUSDT_01['result']['USDT']['unrealised_pnl']
@@ -315,7 +319,13 @@ for i in range(13):
             st.info('〽️'' : ' + str(round(PNL100_01,3)) +'%')
     if i == 10:
         with col11_01:
-            st.info('✂️'' : ' + str(round(COMMISSION_01,2)))
+            st.info('✂️'' : ' + str(round(HWM_01,2)))
+    if i == 11:
+        with col12_01:
+            st.info('✂️'' : ' + str(round(COMMISSION_01-HWM_01,2)))
+    if i == 12:
+        with col13_01:
+            st.info('✂️'' : ' + str(round((COMMISSION_01-HWM_01)/PART_01,2)))
 
 #################
 
