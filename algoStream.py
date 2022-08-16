@@ -226,7 +226,10 @@ for i in range(13):
             st.info('✂️'' : ' + str(round(COMMISSION_00-HWM_00,2)))
     if i == 12:
         with col13_00:
-            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)/PART_00,2)))
+            if PART_00 == 0:
+                st.info("🫶"' : N/A')
+            else
+                st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)/PART_00,2)))
 
 #################
 
