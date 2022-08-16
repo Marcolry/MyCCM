@@ -413,9 +413,9 @@ for i in range(11):
                 oneTrade = posUSDT_00['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     if posUSDT_00['result'][x]['data']['unrealised_pnl'] >= 0:
-                        st.success(str(round((posUSDT_00['result'][x]['data']['unrealised_pnl']/(posUSDT_00['result'][x]['data']['entry_price']*posUSDT_00['result'][x]['data']['size']))*100,2))+ '%)')
+                        st.success(str(round((posUSDT_00['result'][x]['data']['unrealised_pnl']/(posUSDT_00['result'][x]['data']['entry_price']*posUSDT_00['result'][x]['data']['size']))*100,2))+ '%')
                     else: 
-                        st.error(str(round((posUSDT_00['result'][x]['data']['unrealised_pnl']/(posUSDT_00['result'][x]['data']['entry_price']*posUSDT_00['result'][x]['data']['size']))*100,2))+ '%)')
+                        st.error(str(round((posUSDT_00['result'][x]['data']['unrealised_pnl']/(posUSDT_00['result'][x]['data']['entry_price']*posUSDT_00['result'][x]['data']['size']))*100,2))+ '%')
     if i == 6:
         with col6_01:
             st.info("Realized PNL")
