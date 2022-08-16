@@ -60,8 +60,8 @@ print(str(STATELIMIT_00) + '----------------------------------------------------
 
 session_auth_01 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
-    api_key=config.apiKey00ML,
-    api_secret=config.apiSecret00ML
+    api_key=st.secrets["apiKey00ML"],
+    api_secret=st.secrets["apiSecret00ML"]
 )
 authUSDT_01 = session_auth_01.get_wallet_balance()
 posUSDT_01 = session_auth_01.my_position()
