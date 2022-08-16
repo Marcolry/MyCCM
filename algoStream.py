@@ -40,8 +40,8 @@ st.markdown('''# **AlgoFinance AUM**
 
 session_auth_00 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
-    api_key=st.secrets["apiKey00FL"],
-    api_secret=st.secrets["apiSecret00FL"]
+    api_key=st.secrets["aK00Feli"],
+    api_secret=st.secrets["aS00Feli"]
 )
 
 authUSDT_00 = session_auth_00.get_wallet_balance()
@@ -60,8 +60,8 @@ print(str(STATELIMIT_00) + '----------------------------------------------------
 
 session_auth_01 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
-    api_key=st.secrets["apiKey00ML"],
-    api_secret=st.secrets["apiSecret00ML"]
+    api_key=st.secrets["aK00Marc"],
+    api_secret=st.secrets["aS00Marc"]
 )
 authUSDT_01 = session_auth_01.get_wallet_balance()
 posUSDT_01 = session_auth_01.my_position()
