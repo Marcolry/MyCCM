@@ -226,7 +226,7 @@ for i in range(13):
             st.info('✂️'' : ' + str(round(COMMISSION_00-HWM_00,2)))
     if i == 12:
         with col13_00:
-            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM)/DIV_00,2)))
+            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)/DIV_00,2)))
 
 #################
 
