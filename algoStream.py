@@ -170,7 +170,7 @@ for x in a:
 
 ##-----------------------------------------------------------------------> Col
 
-col1_00, col2_00 , col3_00, col4_00, col5_00, col6_00, col7_00, col8_00, col9_00, col10_00, col11_00 = st.columns(11)
+col1_00, col2_00 , col3_00, col4_00, col5_00, col6_00, col7_00, col8_00, col9_00, col10_00, col11_00, col12_00, col13_00 = st.columns(13)
 
 for i in range(11):
     if i == 0:
@@ -259,7 +259,7 @@ for x in a:
 
 ##-----------------------------------------------------------------------> Col
 
-col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01 = st.columns(11)
+col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01, col13_01 = st.columns(13)
 
 for i in range(11):
     if i == 0:
