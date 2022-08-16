@@ -118,7 +118,13 @@ for i in range(11):
             st.info('〽️ Perf. 〽️')
     if i == 10:
         with col11:
+            st.info('✂️ HWM ✂️')
+    if i == 10:
+        with col11:
             st.info('✂️ Com. ✂️')
+    if i == 10:
+        with col11:
+            st.info('✂️ Retro C. ✂️')
 
 
 
