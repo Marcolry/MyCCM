@@ -264,7 +264,7 @@ col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01
 for i in range(11):
     if i == 0:
         with col1_01:
-            st.info('👨🏽‍🎓'' 01Marc')
+            st.info('👨🏽‍🎓'' 00Marc')
     if i == 1:
         with col2_01:
             st.info("💰"' : ' + str(round(EQUITY_01,2)))
@@ -355,7 +355,7 @@ for i in range(11):
 
 
 
-st.markdown('''# **Detail: 💁🏾‍♀️ 00 - Feli**
+st.markdown('''# **Detail:**
 ''')
 
 ##########################
