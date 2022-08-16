@@ -371,7 +371,13 @@ for i in range(13):
             st.info('〽️'' : ' + str(round((PNL100_00*DEPOSIT_00+PNL100_01*DEPOSIT_01)/(DEPOSIT_00+DEPOSIT_01),2)) +'%')
     if i == 10:
         with col11T:
+            st.info('✂️'' : ' + str(round(HWM_00+HWM_01,2)))
+    if i == 11:
+        with col12T:
             st.info('✂️'' : ' + str(round(COMMISSION_00+COMMISSION_01,2)))
+    if i == 12:
+        with col13T:
+            st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)*PART_00+(COMMISSION_01-HWM_01)*PART_01,2)))
 
 
 
