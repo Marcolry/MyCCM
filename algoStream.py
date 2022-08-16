@@ -121,14 +121,6 @@ for i in range(11):
             st.info('✂️ Com. ✂️')
 
 
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
 
 #################
 
@@ -687,17 +679,6 @@ tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(
 
 
 
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-#########----------------------------------------------------------------------->  ALERTTTTTTTTTTTTTTT
-
-
-
 print("Begin !")
 st.header("Begin !")
 
@@ -1176,13 +1157,13 @@ st.header("Done !")
 # col2.metric(col8_selection, col8_price, col8_percent)
 # col3.metric(col9_selection, col9_price, col9_percent)
 
-df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
-#df = pd.read_json('https://api.bybit.com/v2/public/tickers')
-#print(df['last_price'])
+# df = pd.read_json('https://api.bybit.com/v2/public/tickers')['result']
+# #df = pd.read_json('https://api.bybit.com/v2/public/tickers')
+# #print(df['last_price'])
 
-st.header('**All Price**')
-st.dataframe(df)
-st.json(df)
+# st.header('**All Price**')
+# st.dataframe(df)
+# st.json(df)
 
 # st.markdown("""
 # <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
