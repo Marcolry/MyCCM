@@ -119,11 +119,11 @@ for i in range(11):
     if i == 10:
         with col11:
             st.info('✂️ HWM ✂️')
-    if i == 10:
-        with col11:
+    if i == 11:
+        with col12:
             st.info('✂️ Com. ✂️')
-    if i == 10:
-        with col11:
+    if i == 12:
+        with col13:
             st.info('✂️ Retro C. ✂️')
 
 
