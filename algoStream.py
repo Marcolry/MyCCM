@@ -137,7 +137,7 @@ for i in range(13):
 
 HWM_00 = 0
 TX_00 = 0.3
-PART_00 = 3
+PART_00 = 1/3
 
 EQUITY_00 = authUSDT_00['result']['USDT']['equity']
 NRZ_00 = authUSDT_00['result']['USDT']['unrealised_pnl']
@@ -229,7 +229,7 @@ for i in range(13):
             if PART_00 == 0:
                 st.info("🫶"' : N/A')
             else:
-                st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)/PART_00,2)))
+                st.info('✂️'' : ' + str(round((COMMISSION_00-HWM_00)*PART_00,2)))
 
 #################
 
@@ -331,7 +331,7 @@ for i in range(13):
             if PART_00 == 0:
                 st.info("🫶"' : N/A')
             else:
-                st.info('✂️'' : ' + str(round((COMMISSION_01-HWM_01)/PART_01,2)))
+                st.info('✂️'' : ' + str(round((COMMISSION_01-HWM_01)*PART_01,2)))
 
 #################
 
