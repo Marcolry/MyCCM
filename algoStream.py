@@ -491,18 +491,28 @@ for i in range(11):
                         st.error(str(round(posUSDT_01['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
+            st.info("Unrealised %")
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_01['result'][x]['data']['cum_realised_pnl']))
+                    if posUSDT_01['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round((posUSDT_01['result'][x]['data']['unrealised_pnl']/(posUSDT_01['result'][x]['data']['entry_price']*posUSDT_01['result'][x]['data']['size']))*100,2))+ '%')
+                    else: 
+                        st.error(str(round((posUSDT_01['result'][x]['data']['unrealised_pnl']/(posUSDT_01['result'][x]['data']['entry_price']*posUSDT_01['result'][x]['data']['size']))*100,2))+ '%')
     if i == 6:
         with col6_01:
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_01['result'][x]['data']['entry_price']))
+                    st.info(str(posUSDT_01['result'][x]['data']['cum_realised_pnl']))
     if i == 7:
         with col7_01:
+            for x in a:
+                oneTrade = posUSDT_01['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_01['result'][x]['data']['entry_price']))
+    if i == 8:
+        with col8_01:
             for x in a:
                 oneTrade = posUSDT_01['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
