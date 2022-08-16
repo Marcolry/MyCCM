@@ -85,7 +85,7 @@ st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + 
 
 col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
 
-for i in range(11):
+for i in range(13):
     if i == 0:
         with col1:
             st.info(' 📘 ')
@@ -178,7 +178,7 @@ for x in a:
 
 col1_00, col2_00 , col3_00, col4_00, col5_00, col6_00, col7_00, col8_00, col9_00, col10_00, col11_00, col12_00, col13_00 = st.columns(13)
 
-for i in range(11):
+for i in range(13):
     if i == 0:
         with col1_00:
             st.info('💁🏾‍♀️'' 00Feli')
@@ -267,7 +267,7 @@ for x in a:
 
 col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01, col13_01 = st.columns(13)
 
-for i in range(11):
+for i in range(13):
     if i == 0:
         with col1_01:
             st.info('👨🏽‍🎓'' 00Marc')
@@ -310,7 +310,7 @@ for i in range(11):
 
 col1T, col2T, col3T, col4T, col5T, col6T, col7T, col8T, col9T, col10T, col11T, col12T, col13T = st.columns(13)
 
-for i in range(11):
+for i in range(13):
     if i == 0:
         with col1T:
             st.info('Total')
