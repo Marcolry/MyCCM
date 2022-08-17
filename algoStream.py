@@ -729,8 +729,23 @@ for x in a:
         print(posUSDT_01['result'][x]['data']['symbol'])
         print("ok")
     except:
+        print("print")
         pass
 
+
+
+# print(session_auth_00.position_mode_switch(
+#     symbol="ETCUSDT",
+#     mode="MergedSingle"
+# ))
+
+# # for i in a:
+# #     print(i)
+
+# for x in a:
+# for x in range(0,len(authPNL_01))
+#     print(x)
+#     print(posUSDT_01['result'][x]['data']['symbol'])
 
 
 
