@@ -28,21 +28,18 @@ st.markdown('''# **AlgoFinance AUM**
 ###################################################################################################################################################################### API
 
 
-c00Feli = np.array(['00Feli', st.secrets["aK00Feli"], st.secrets["aS00Feli"], 0.3, 1/3, 0])
-c00Marc = np.array(['00Marc', st.secrets["aK00Marc"], st.secrets["aS00Marc"], 0.3, 0, 0])
-
-#c00Feli = np.array(['00Feli', config.aK00Feli, config.aS00Feli, 0.3, 1/3, 0])
-#c00Marc = np.array(['00Marc', config.aK00Marc, config.aS00Marc, 0.3, 0, 0])
+c00Feli = np.array(['00Feli', config.aK00Feli, config.aS00Feli, 0.3, 1/3, 0])
+c00Marc = np.array(['00Marc', config.aK00Marc, config.aS00Marc, 0.3, 0, 0])
 
 
 allUsers = np.array([c00Feli, c00Marc])
 
 
-session_auth_00Feli = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Feli"],api_secret=st.secrets["aS00Feli"])
-session_auth_00Marc = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Marc"],api_secret=st.secrets["aS00Marc"])
+#session_auth_00Feli = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Feli"],api_secret=st.secrets["aS00Feli"])
+#session_auth_00Marc = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Marc"],api_secret=st.secrets["aS00Marc"])
 
-#session_auth_00Feli = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=allUsers[0][1],api_secret=allUsers[0][2])
-#session_auth_00Marc = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=allUsers[1][1],api_secret=allUsers[1][2])
+session_auth_00Feli = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=allUsers[0][1],api_secret=allUsers[0][2])
+session_auth_00Marc = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=allUsers[1][1],api_secret=allUsers[1][2])
 
 authUSDT_00Feli = session_auth_00Feli.get_wallet_balance()
 authUSDT_00Marc = session_auth_00Marc.get_wallet_balance()
