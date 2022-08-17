@@ -725,7 +725,7 @@ st.header("Change A  !")
 # for i in a:
 #     print(i)
 
-for x in 200:
+for x in a:
     print(session_auth_00.position_mode_switch(
     symbol="XEMUSDT",
     mode="MergedSingle"
