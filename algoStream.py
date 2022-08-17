@@ -729,6 +729,7 @@ for x in a:
     print(x)
     print(posUSDT_01['result'][x]['data']['symbol'])
 
+
 # print(session_auth_00.position_mode_switch(
 #     symbol="ETCUSDT",
 #     mode="MergedSingle"
