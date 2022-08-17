@@ -41,10 +41,16 @@ st.markdown('''# **AlgoFinance AUM**
 
 ##-----------------------------------------------------------------------> 00 - Feli
 
+# session_auth_00 = usdt_perpetual.HTTP(
+#     endpoint="https://api.bybit.com",
+#     api_key=st.secrets["aK00Feli"],
+#     api_secret=st.secrets["aS00Feli"]
+# )
+
 session_auth_00 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
-    api_key=st.secrets["aK00Feli"],
-    api_secret=st.secrets["aS00Feli"]
+    api_key=config.aK00Feli,
+    api_secret=Config.aS00Feli
 )
 
 authUSDT_00 = session_auth_00.get_wallet_balance()
@@ -61,11 +67,18 @@ print(str(STATELIMIT_00) + '----------------------------------------------------
 
 ##-----------------------------------------------------------------------> 01 - Algo
 
+# session_auth_01 = usdt_perpetual.HTTP(
+#     endpoint="https://api.bybit.com",
+#     api_key=st.secrets["aK00Marc"],
+#     api_secret=st.secrets["aS00Marc"]
+# )
+
 session_auth_01 = usdt_perpetual.HTTP(
     endpoint="https://api.bybit.com",
-    api_key=st.secrets["aK00Marc"],
-    api_secret=st.secrets["aS00Marc"]
+    api_key=config.aK00Marc,
+    api_secret=Config.aS00Marc
 )
+
 authUSDT_01 = session_auth_01.get_wallet_balance()
 posUSDT_01 = session_auth_01.my_position()
 
