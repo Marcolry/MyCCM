@@ -721,6 +721,14 @@ tol1, tol2, tol3, tol4, tol5, tol6, tol7, tol8, tol9, tol10, tol11 = st.columns(
 print("Change A !")
 st.header("Change A  !")
 
+
+# for i in a:
+#     print(i)
+
+for x in a:
+    print(x)
+    print(posUSDT_01['result'][x]['data']['symbol'])
+
 print(session_auth_00.position_mode_switch(
     symbol="ETCUSDT",
     mode="MergedSingle"
