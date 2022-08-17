@@ -763,6 +763,22 @@ st.header("Done !")
 
 
 
+print("Change A !")
+st.header("Change A  !")
+
+print(session_auth_00.position_mode_switch(
+    symbol="ETHUSDT",
+    mode="MergedSingle"
+))
+
+print(session_auth_01.position_mode_switch(
+    symbol="ETHUSDT",
+    mode="MergedSingle"
+))
+
+print("Done !")
+st.header("Done !")
+
 
 # authPNL_02 = session_auth_01.closed_profit_and_loss(symbol="XLMUSDT")
 # for i in authPNL_02["result"]["data"]:
