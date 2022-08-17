@@ -726,6 +726,14 @@ st.header("Change A  !")
 #     print(i)
 
 for x in a:
+    print(session_auth_00.position_mode_switch(
+    symbol="XEMUSDT",
+    mode="MergedSingle"
+    ))
+    print(session_auth_00.position_mode_switch(
+    symbol="XEMUSDT",
+    mode="MergedSingle"
+    ))
     print(x)
     print(posUSDT_01['result'][x]['data']['symbol'])
 
