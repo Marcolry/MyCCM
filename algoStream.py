@@ -205,7 +205,7 @@ for i in range(13):
             st.info("💸"' : ' + str(round(NRZ_00,2)))
     if i == 6:
         with col7_00:
-            st.info("💀"' : ' + str(round(INPLAY_00,2)*100) +'%')
+            st.info("💀"' : ' + str(round(INPLAY_00*100,2)) +'%')
     if i == 7:
         with col8_00:
             if nbTrade_00 == 0:
