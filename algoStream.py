@@ -732,6 +732,8 @@ for x in a:
         pass
 
 
+
+
 # print(session_auth_00.position_mode_switch(
 #     symbol="ETCUSDT",
 #     mode="MergedSingle"
