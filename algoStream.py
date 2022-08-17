@@ -359,7 +359,7 @@ for i in range(13):
             st.info("💸"' : ' + str(round(NRZ_00+NRZ_01,2)))
     if i == 6:
         with col7T:
-            st.info("💀"' : ' + str(round((EQUITY_00+EQUITY_01-AVAILABLE_00-AVAILABLE_01)/(EQUITY_00+EQUITY_01),2)*100)+'%')
+            st.info("💀"' : ' + str(round((EQUITY_00+EQUITY_01-AVAILABLE_00-AVAILABLE_01)*100/(EQUITY_00+EQUITY_01),2))+'%')
     if i == 7:
         with col8T:
             st.info("🫶 Long/Short 🫶")
