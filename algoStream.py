@@ -25,7 +25,7 @@ import socket
 
 #############################################################################################
 
-ALL = list(range(0, 335)) #print(ALL)
+ALL = list(range(0, 333)) #print(ALL)
 a = arr.array('i', ALL)
 TX = 0.3
 
