@@ -722,12 +722,12 @@ print("Change A !")
 st.header("Change A  !")
 
 print(session_auth_00.position_mode_switch(
-    symbol="ETHUSDT",
+    symbol="ETCUSDT",
     mode="MergedSingle"
 ))
 
 print(session_auth_01.position_mode_switch(
-    symbol="ETHUSDT",
+    symbol="ETCUSDT",
     mode="MergedSingle"
 ))
 
