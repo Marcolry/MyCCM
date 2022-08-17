@@ -722,12 +722,14 @@ print("Change A !")
 st.header("Change A  !")
 
 
-# for i in a:
-#     print(i)
-
 for x in a:
-    print(x)
-    print(posUSDT_01['result'][x]['data']['symbol'])
+    try:
+        ii = str(posUSDT_01['result'][x]['data']['symbol'])
+        authWAY_01 = session_auth_00.position_mode_switch(symbol=(ii), mode="MergedSingle")
+        print(posUSDT_01['result'][x]['data']['symbol'])
+        print("ok")
+    except:
+        pass
 
 
 # print(session_auth_00.position_mode_switch(
@@ -739,6 +741,7 @@ for x in a:
 #     symbol="ETCUSDT",
 #     mode="MergedSingle"
 # ))
+
 
 print("Done !")
 st.header("Done !")
