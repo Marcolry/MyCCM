@@ -28,12 +28,14 @@ st.markdown('''# **AlgoFinance AUM**
 ###################################################################################################################################################################### API
 
 
-c00Feli = np.array(['00Feli', st.secrets["aK00Feli"], st.secrets["aS00Feli"], 0.3, 1/3, 0])
-c00Marc = np.array(['00Marc', st.secrets["aK00Marc"], st.secrets["aS00Marc"], 0.3, 0, 0])
+#c00Feli = np.array(['00Feli', st.secrets["aK00Feli"], st.secrets["aS00Feli"], 0.3, 1/3, 0])
+#c00Marc = np.array(['00Marc', st.secrets["aK00Marc"], st.secrets["aS00Marc"], 0.3, 0, 0])
 
 #c00Feli = np.array(['00Feli', config.aK00Feli, config.aS00Feli, 0.3, 1/3, 0])
 #c00Marc = np.array(['00Marc', config.aK00Marc, config.aS00Marc, 0.3, 0, 0])
 
+c00Feli = np.array(['00Feli', 'JZ24WpMKpp9rwlFKVZ', 'AHlS383YuQYNo1YGeY1S5c8e4DyIEu93rhUT', 0.3, 1/3, 0])
+c00Marc = np.array(['00Marc', "UF0dKfVrCZuzv03TPy", "gzzHsA7oulat7i0qzq5zNbOfAwvQyTLBC8Pf", 0.3, 0, 0])
 
 allUsers = np.array([c00Feli, c00Marc])
 
