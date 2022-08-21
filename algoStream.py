@@ -2,7 +2,6 @@ import streamlit as st
 import time
 st.set_page_config(layout="wide")
 import pandas as pd
-import config
 import bybit
 from pybit import usdt_perpetual
 import array as arr
