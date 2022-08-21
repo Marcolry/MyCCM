@@ -28,6 +28,9 @@ st.markdown('''# **AlgoFinance AUM**
 ###################################################################################################################################################################### API
 
 
+#c00Feli = np.array(['00Feli', st.secrets["aK00Feli"], st.secrets["aS00Feli"], 0.3, 1/3, 0])
+#c00Marc = np.array(['00Marc', st.secrets["aK00Marc"], st.secrets["aS00Marc"], 0.3, 0, 0])
+
 c00Feli = np.array(['00Feli', config.aK00Feli, config.aS00Feli, 0.3, 1/3, 0])
 c00Marc = np.array(['00Marc', config.aK00Marc, config.aS00Marc, 0.3, 0, 0])
 
