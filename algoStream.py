@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 st.set_page_config(layout="wide")
-st.set_page_config(base="dark")
+st.set_page_config(theme="dark")
 import pandas as pd
 import bybit
 from pybit import usdt_perpetual
