@@ -202,12 +202,12 @@ for x in a:
         nbTrade_01 += 1
 
 for x in a:
-    oneLong = posUSDT_00Marc['result'][x]['data']["side"] == "Buy"
+    oneLong = posUSDT_00Marc['result'][x]['data']["side"] == "Buy" and posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
     if oneLong:
         nbLong_01 += 1
 
 for x in a:
-    oneShort = posUSDT_00Marc['result'][x]['data']["side"] == "Sell"
+    oneShort = posUSDT_00Marc['result'][x]['data']["side"] == "Sell" and posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
     if oneShort:
         nbShort_01 += 1
 
