@@ -416,15 +416,18 @@ for i in range(13):
 st.markdown('''# **Positions:**
 ''')
 
-##########################
+#############################################################################################################################################
+#############################################################################################################################################
+#############################################################################################################################################
+#############################################################################################################################################
+#############################################################################################################################################
+#############################################################################################################################################
+#############################################################################################################################################
 
 
-
-# -----------------------------------------------------------------------> 00 - Feli
-# -----------------------------------------------------------------------> 00 - Feli
-# -----------------------------------------------------------------------> 00 - Feli
-# -----------------------------------------------------------------------> 00 - Feli
-# -----------------------------------------------------------------------> 00 - Feli
+####----------------------
+####---------------------- TFio
+####----------------------
 
 col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
 
@@ -432,32 +435,32 @@ for i in range(13):
     if i == 0:
         with col0_01:
             st.info("All Account")
-            st.info("00 - Feli")
+            st.info("00 - TFio")
     if i == 1:
         with col1_01:
             st.info("Symbol")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00TFio['result'][x]['data']['symbol']))
     if i == 2:
         with col2_01:
             st.info("Side")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00TFio['result'][x]['data']['side']))
     if i == 3:
         with col3_01:
             st.info("Size")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00TFio['result'][x]['data']['size']))
     if i == 4:
         with col4_01:
             st.info("Unrealised PNL")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     if posUSDT_00TFio['result'][x]['data']['unrealised_pnl'] >= 0:
@@ -467,7 +470,7 @@ for i in range(13):
     if i == 5:
         with col5_01:
             st.info("Unrealised %")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     if posUSDT_00TFio['result'][x]['data']['unrealised_pnl'] >= 0:
@@ -477,70 +480,56 @@ for i in range(13):
     if i == 6:
         with col6_01:
             st.info("Realized PNL")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00TFio['result'][x]['data']['cum_realised_pnl']))
     if i == 7:
         with col7_01:
             st.info("Entry Price")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00TFio['result'][x]['data']['entry_price']))
     if i == 8:
         with col8_01:
             st.info("Total Size")
-            for x in a:
+            for x in a_00TFio:
                 oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(round(posUSDT_00TFio['result'][x]['data']['entry_price']*posUSDT_00TFio['result'][x]['data']['size'],2)))
 
-
-##-----------------------------------------------------------------------> 00 - Feli
-##-----------------------------------------------------------------------> 00 - Feli
-##-----------------------------------------------------------------------> 00 - Feli
-##-----------------------------------------------------------------------> 00 - Feli
-##-----------------------------------------------------------------------> 00 - Feli
-
-
-
-#st.markdown('''# **Detail: 👨🏽‍🎓 01 - Marc**
-#''')
-
-##########################
-
-
-##-----------------------------------------------------------------------> 01 - Marc
-
+####----------------------
+####---------------------- Xm33
+####----------------------
 
 col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
 
 for i in range(13):
     if i == 0:
         with col0_01:
-            st.info("00 - Marc")
+            st.info("00 - Xm33")
     if i == 1:
         with col1_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00Xm33['result'][x]['data']['symbol']))
     if i == 2:
         with col2_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00Xm33['result'][x]['data']['side']))
     if i == 3:
         with col3_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00Xm33['result'][x]['data']['size']))
     if i == 4:
         with col4_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     if posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'] >= 0:
@@ -549,7 +538,7 @@ for i in range(13):
                         st.error(str(round(posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     if posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'] >= 0:
@@ -558,23 +547,22 @@ for i in range(13):
                         st.error(str(round((posUSDT_00Xm33['result'][x]['data']['unrealised_pnl']/(posUSDT_00Xm33['result'][x]['data']['entry_price']*posUSDT_00Xm33['result'][x]['data']['size']))*100,2))+ '%')
     if i == 6:
         with col6_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00Xm33['result'][x]['data']['cum_realised_pnl']))
     if i == 7:
         with col7_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(posUSDT_00Xm33['result'][x]['data']['entry_price']))
     if i == 8:
         with col8_01:
-            for x in a:
+            for x in a_00Xm33:
                 oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(round(posUSDT_00Xm33['result'][x]['data']['entry_price']*posUSDT_00Xm33['result'][x]['data']['size'],2)))
-
 
 ############################################################################################################ ONE-WAY
 
