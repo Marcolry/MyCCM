@@ -115,9 +115,6 @@ print(str(STATELIMIT_01) + '----------------------------------------------------
 #print(len(posUSDT_00Feli['result']))
 #print(len(posUSDT_00Xm33['result']))
 
-ALL = list(range(0, len(posUSDT_00Xm33['result']))) #print(ALL)
-a = arr.array('i', ALL)
-
 ##-----------------------------------------------------------------------> API LIMIT
 
 st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + ' & ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
@@ -126,90 +123,98 @@ st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + 
 ###################################################################################################################################################################### CONFIG Feli
 
 
-EQUITY_00 = authUSDT_00Feli['result']['USDT']['equity']
-NRZ_00 = authUSDT_00Feli['result']['USDT']['unrealised_pnl']
-PERF_00 = authUSDT_00Feli['result']['USDT']['cum_realised_pnl']
+ALL_00TFio = list(range(0, len(posUSDT_00TFio['result']))) #print(ALL)
+a_00TFio = arr.array('i', ALL_00TFio)
 
-AVAILABLE_00 = authUSDT_00Feli['result']['USDT']['available_balance']
-INPLAY_00 = (EQUITY_00 - AVAILABLE_00)/EQUITY_00
+######################################################################################### DATA
 
-
-DEPOSIT_00 = EQUITY_00 - NRZ_00 - PERF_00
-PNL100_00 = (round(EQUITY_00/DEPOSIT_00,4)-1)*100
-
-TAXABLE_00 = NRZ_00 + PERF_00
-#print('TO TAX: ' + str(TAXABLE_00))
-
-if TAXABLE_00 > 0:
-    COMMISSION_00 = TAXABLE_00 * float(allUsers[0][3])
-if TAXABLE_00 < 0:
-    COMMISSION_00 = 0
+EQUITY_00TFio = authUSDT_00TFio['result']['USDT']['equity']
+NRZ_00TFio = authUSDT_00TFio['result']['USDT']['unrealised_pnl']
+PERF_00TFio = authUSDT_00TFio['result']['USDT']['cum_realised_pnl']
+AVAILABLE_00TFio = authUSDT_00TFio['result']['USDT']['available_balance']
+INPLAY_00TFio = (EQUITY_00TFio - AVAILABLE_00TFio)/EQUITY_00TFio
 
 
-##-----------------------------------------------------------------------> Nb
+DEPOSIT_00TFio = EQUITY_00TFio - NRZ_00TFio - PERF_00TFio
+PNL100_00TFio = (round(EQUITY_00TFio/DEPOSIT_00TFio,4)-1)*100
 
-nbTrade_00 = 0
-nbLong_00 = 0
-nbShort_00 = 0
+TAXABLE_00TFio = NRZ_00TFio + PERF_00TFio
 
-for x in a:
-   oneTrade = posUSDT_00Feli['result'][x]['data']["entry_price"] != 0
+if TAXABLE_00TFio > 0:
+    COMMISSION_00TFio = TAXABLE_00TFio * TXCOM_00TFio
+if TAXABLE_00TFio <= 0:
+    COMMISSION_00TFio = 0
+
+
+######################################################################################### NB
+
+nbTrade_00TFio = 0
+nbLong_00TFio = 0
+nbShort_00TFio = 0
+
+for x in a_00TFio:
+   oneTrade = posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
    if oneTrade:
-       nbTrade_00 += 1
+       nbTrade_00TFio += 1
 
-for x in a:
-   oneLong = posUSDT_00Feli['result'][x]['data']["side"] == "Buy" and posUSDT_00Feli['result'][x]['data']["entry_price"] != 0
+for x in a_00TFio:
+   oneLong = posUSDT_00TFio['result'][x]['data']["side"] == "Buy" and posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
    if oneLong:
-       nbLong_00 += 1
+       nbLong_00TFio += 1
 
-for x in a:
-   oneShort = posUSDT_00Feli['result'][x]['data']["side"] == "Sell" and posUSDT_00Feli['result'][x]['data']["entry_price"] != 0
+for x in a_00TFio:
+   oneShort = posUSDT_00TFio['result'][x]['data']["side"] == "Sell" and posUSDT_00TFio['result'][x]['data']["entry_price"] != 0
    if oneShort:
-       nbShort_00 += 1
+       nbShort_00TFio += 1
 
 
 ###################################################################################################################################################################### CONFIG Marc
 
 
-EQUITY_01 = authUSDT_00Xm33['result']['USDT']['equity']
-NRZ_01 = authUSDT_00Xm33['result']['USDT']['unrealised_pnl']
-PERF_01 = authUSDT_00Xm33['result']['USDT']['cum_realised_pnl']
+ALL_00Xm33 = list(range(0, len(posUSDT_00Xm33['result']))) #print(ALL)
+a_00Xm33 = arr.array('i', ALL_00Xm33)
 
-AVAILABLE_01 = authUSDT_00Xm33['result']['USDT']['available_balance']
-INPLAY_01 = (EQUITY_01 - AVAILABLE_01)/EQUITY_01
+######################################################################################### DATA
+
+EQUITY_00Xm33 = authUSDT_00Xm33['result']['USDT']['equity']
+NRZ_00Xm33 = authUSDT_00Xm33['result']['USDT']['unrealised_pnl']
+PERF_00Xm33 = authUSDT_00Xm33['result']['USDT']['cum_realised_pnl']
+
+AVAILABLE_00Xm33 = authUSDT_00Xm33['result']['USDT']['available_balance']
+INPLAY_00Xm33 = (EQUITY_00Xm33 - AVAILABLE_00Xm33)/EQUITY_00Xm33
 
 
-DEPOSIT_01 = EQUITY_01 - NRZ_01 - PERF_01
-PNL100_01 = (round(EQUITY_01/DEPOSIT_01,4)-1)*100
+DEPOSIT_00Xm33 = EQUITY_00Xm33 - NRZ_00Xm33 - PERF_00Xm33
+PNL100_00Xm33 = (round(EQUITY_00Xm33/DEPOSIT_00Xm33,4)-1)*100
 
-TAXABLE_01 = NRZ_01 + PERF_01
-#print('TO TAX: ' + str(TAXABLE_01))
+TAXABLE_00Xm33 = NRZ_00Xm33 + PERF_00Xm33
 
-if TAXABLE_01 > 0:
-    COMMISSION_01 = TAXABLE_01 * float(allUsers[1][3])
-if TAXABLE_01 < 0:
-    COMMISSION_01 = 0
+if TAXABLE_00Xm33 > 0:
+    COMMISSION_00Xm33 = TAXABLE_00Xm33 * TXCOM_00Xm33
+if TAXABLE_00Xm33 <= 0:
+    COMMISSION_00Xm33 = TAXABLE_00Xm33 * TXCOM_00Xm33
 
-##-----------------------------------------------------------------------> NB
 
-nbTrade_01 = 0
-nbLong_01 = 0
-nbShort_01 = 0
+######################################################################################### NB
 
-for x in a:
-    oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
-    if oneTrade:
-        nbTrade_01 += 1
+nbTrade_00Xm33 = 0
+nbLong_00Xm33 = 0
+nbShort_00Xm33 = 0
 
-for x in a:
-    oneLong = posUSDT_00Xm33['result'][x]['data']["side"] == "Buy" and posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
-    if oneLong:
-        nbLong_01 += 1
+for x in a_00Xm33:
+   oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
+   if oneTrade:
+       nbTrade_00Xm33 += 1
 
-for x in a:
-    oneShort = posUSDT_00Xm33['result'][x]['data']["side"] == "Sell" and posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
-    if oneShort:
-        nbShort_01 += 1
+for x in a_00Xm33:
+   oneLong = posUSDT_00Xm33['result'][x]['data']["side"] == "Buy" and posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
+   if oneLong:
+       nbLong_00Xm33 += 1
+
+for x in a_00Xm33:
+   oneShort = posUSDT_00Xm33['result'][x]['data']["side"] == "Sell" and posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
+   if oneShort:
+       nbShort_00Xm33 += 1
 
 
 
