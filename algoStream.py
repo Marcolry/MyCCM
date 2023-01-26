@@ -26,6 +26,13 @@ st.markdown('''# **AlgoFinance AUM**
 
 ###################################################################################################################################################################### API
 
+TXCOM_00TFio = 1
+RETRO_00TFio = 0
+HWM_00TFio = 0
+TXCOM_00Xm33 = 1
+RETRO_00Xm33 = 0
+HWM_00Xm33 = 0
+
 
 c00TFio = np.array(['00TFio', st.secrets["aK00TFio"], st.secrets["aS00TFio"], 0.3, 1/3, 0])
 c00Xm33 = np.array(['00Xm33', st.secrets["aK00Xm33"], st.secrets["aS00Xm33"], 0.3, 0, 0])
