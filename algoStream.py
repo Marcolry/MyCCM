@@ -28,21 +28,21 @@ st.markdown('''# **AlgoFinance AUM**
 
 
 c00Feli = np.array(['00Feli', st.secrets["aK00Feli"], st.secrets["aS00Feli"], 0.3, 1/3, 0])
-c00Marc = np.array(['00Marc', st.secrets["aK00Marc"], st.secrets["aS00Marc"], 0.3, 0, 0])
+c00Xm33 = np.array(['00Xm33', st.secrets["aK00Xm33"], st.secrets["aS00Xm33"], 0.3, 0, 0])
 
 
-allUsers = np.array([c00Feli, c00Marc])
+allUsers = np.array([c00Feli, c00Xm33])
 
 
 session_auth_00Feli = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Feli"],api_secret=st.secrets["aS00Feli"])
-session_auth_00Marc = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Marc"],api_secret=st.secrets["aS00Marc"])
+session_auth_00Xm33 = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Xm33"],api_secret=st.secrets["aS00Xm33"])
 
 
 authUSDT_00Feli = session_auth_00Feli.get_wallet_balance()
-authUSDT_00Marc = session_auth_00Marc.get_wallet_balance()
+authUSDT_00Xm33 = session_auth_00Xm33.get_wallet_balance()
 
 posUSDT_00Feli = session_auth_00Feli.my_position()
-posUSDT_00Marc = session_auth_00Marc.my_position()
+posUSDT_00Xm33 = session_auth_00Xm33.my_position()
 
 
 
@@ -103,9 +103,9 @@ STATELIMIT_00 = authUSDT_00Feli['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00Feli['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 ##-----------------------------------------------------------------------> 00 - Marc
-RATELIMIT_01 = authUSDT_00Marc['rate_limit']
-STATELIMIT_01 = authUSDT_00Marc['rate_limit_status']
-RESETLIMIT_01 = authUSDT_00Marc['rate_limit_reset_ms']
+RATELIMIT_01 = authUSDT_00Xm33['rate_limit']
+STATELIMIT_01 = authUSDT_00Xm33['rate_limit_status']
+RESETLIMIT_01 = authUSDT_00Xm33['rate_limit_reset_ms']
 print(str(STATELIMIT_01) + '------------------------------------------------------------------------------->')
 
 
@@ -113,9 +113,9 @@ print(str(STATELIMIT_01) + '----------------------------------------------------
 
 
 #print(len(posUSDT_00Feli['result']))
-#print(len(posUSDT_00Marc['result']))
+#print(len(posUSDT_00Xm33['result']))
 
-ALL = list(range(0, len(posUSDT_00Marc['result']))) #print(ALL)
+ALL = list(range(0, len(posUSDT_00Xm33['result']))) #print(ALL)
 a = arr.array('i', ALL)
 
 ##-----------------------------------------------------------------------> API LIMIT
@@ -171,11 +171,11 @@ for x in a:
 ###################################################################################################################################################################### CONFIG Marc
 
 
-EQUITY_01 = authUSDT_00Marc['result']['USDT']['equity']
-NRZ_01 = authUSDT_00Marc['result']['USDT']['unrealised_pnl']
-PERF_01 = authUSDT_00Marc['result']['USDT']['cum_realised_pnl']
+EQUITY_01 = authUSDT_00Xm33['result']['USDT']['equity']
+NRZ_01 = authUSDT_00Xm33['result']['USDT']['unrealised_pnl']
+PERF_01 = authUSDT_00Xm33['result']['USDT']['cum_realised_pnl']
 
-AVAILABLE_01 = authUSDT_00Marc['result']['USDT']['available_balance']
+AVAILABLE_01 = authUSDT_00Xm33['result']['USDT']['available_balance']
 INPLAY_01 = (EQUITY_01 - AVAILABLE_01)/EQUITY_01
 
 
@@ -197,17 +197,17 @@ nbLong_01 = 0
 nbShort_01 = 0
 
 for x in a:
-    oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+    oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
     if oneTrade:
         nbTrade_01 += 1
 
 for x in a:
-    oneLong = posUSDT_00Marc['result'][x]['data']["side"] == "Buy" and posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+    oneLong = posUSDT_00Xm33['result'][x]['data']["side"] == "Buy" and posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
     if oneLong:
         nbLong_01 += 1
 
 for x in a:
-    oneShort = posUSDT_00Marc['result'][x]['data']["side"] == "Sell" and posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+    oneShort = posUSDT_00Xm33['result'][x]['data']["side"] == "Sell" and posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
     if oneShort:
         nbShort_01 += 1
 
@@ -233,96 +233,113 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13
 for i in range(13):
     if i == 0:
         with col1:
-            st.info(' 📘 ')
-            st.info('💁🏾‍♀️'' 00Feli')
-            st.info('👨🏽‍🎓'' 00Marc')
-            st.info('Total')
+            st.info("₿: "+ btc)
+            st.info('💁🏾‍♀️'' 00TFio')
+            st.info('💁🏾‍♀️'' 00Xm33')
+            #st.info('💁🏾‍♀️'' 00Feli')
+            st.info("💰"' : ' + str(round((EQUITY_00TFio + EQUITY_00Xm33)/float(btc), 4)) + ' BTC')
     if i == 1:
         with col2:
             st.info("💰 Equity 💰")
-            st.info("💰"' : ' + str(round(EQUITY_00,2)))
-            st.info("💰"' : ' + str(round(EQUITY_01,2)))
-            st.info("💰"' : ' + str(round(EQUITY_00 + EQUITY_01, 2)))
+            st.info("💰"' : ' + str(round(EQUITY_00TFio,2)))
+            st.info("💰"' : ' + str(round(EQUITY_00Xm33,2)))
+            #st.info("💰"' : ' + str(round(EQUITY_00Feli,2)))
+            st.info("💰"' : ' + str(round(EQUITY_00TFio + EQUITY_00Xm33, 2)))
     if i == 2:
         with col3:
             st.info("⬇️ Deposit ⬇️")
-            st.info("⬇️"' : ' + str(round(DEPOSIT_00,2)))
-            st.info("⬇️"' : ' + str(round(DEPOSIT_01,2)))
-            st.info("⬇️"' : ' + str(round(DEPOSIT_00+DEPOSIT_01,2)))
+            st.info("⬇️"' : ' + str(round(DEPOSIT_00TFio,2)))
+            st.info("⬇️"' : ' + str(round(DEPOSIT_00Xm33,2)))
+            #st.info("⬇️"' : ' + str(round(DEPOSIT_00Feli,2)))
+            st.info("⬇️"' : ' + str(round(DEPOSIT_00TFio + DEPOSIT_00Xm33, 1)))
     if i == 3:
         with col4:
             st.info("💸 Bénéfice 💸")
-            st.info("💸"' : ' + str(round(TAXABLE_00,2)))
-            st.info("💸"' : ' + str(round(TAXABLE_01,2)))
-            st.info("💸"' : ' + str(round(TAXABLE_00+TAXABLE_01,2)))
+            st.info("💸"' : ' + str(round(TAXABLE_00TFio,2)))
+            st.info("💸"' : ' + str(round(TAXABLE_00Xm33,2)))
+            #st.info("💸"' : ' + str(round(TAXABLE_00Feli,2)))
+            st.info("💸"' : ' + str(round(TAXABLE_00TFio + TAXABLE_00Xm33, 2)))
     if i == 4:
         with col5:
             st.info("💸 Realized 💸")
-            st.info("💸"' : ' + str(round(PERF_00,2)))
-            st.info("💸"' : ' + str(round(PERF_01,2)))
-            st.info("💸"' : ' + str(round(PERF_00+PERF_01,2)))
+            st.info("💸"' : ' + str(round(PERF_00TFio,2)))
+            st.info("💸"' : ' + str(round(PERF_00Xm33,2)))
+            #st.info("💸"' : ' + str(round(PERF_00Feli,2)))
+            st.info("💸"' : ' + str(round(PERF_00TFio + PERF_00Xm33, 2)))
     if i == 5:
         with col6:
             st.info("💸 Unrealized 💸")
-            st.info("💸"' : ' + str(round(NRZ_00,2)))
-            st.info("💸"' : ' + str(round(NRZ_01,2)))
-            st.info("💸"' : ' + str(round(NRZ_00+NRZ_01,2)))
-
+            st.info("💸"' : ' + str(round(NRZ_00TFio,2)))
+            st.info("💸"' : ' + str(round(NRZ_00Xm33,2)))
+            #st.info("💸"' : ' + str(round(NRZ_00Feli,2)))
+            st.info("💸"' : ' + str(round(NRZ_00TFio + NRZ_00Xm33, 2)))
     if i == 6:
         with col7:
             st.info("💀 In Play 💀")
-            st.info("💀"' : ' + str(round(INPLAY_00*100,2)) +'%')
-            st.info("💀"' : ' + str(round(INPLAY_01*100,2)) +'%')
-            st.info("💀"' : ' + str(round((EQUITY_00+EQUITY_01-AVAILABLE_00-AVAILABLE_01)*100/(EQUITY_00+EQUITY_01),2))+'%')
+            st.info("💀"' : ' + str(round(INPLAY_00TFio*100,2)) +'%')
+            st.info("💀"' : ' + str(round(INPLAY_00Xm33*100,2)) +'%')
+            #st.info("💀"' : ' + str(round(INPLAY_00Feli*100,2)) +'%')
+            st.info("💀"' : ' + str(round((EQUITY_00TFio + EQUITY_00Xm33 - AVAILABLE_00TFio - AVAILABLE_00Xm33) * 100 / (EQUITY_00TFio + EQUITY_00Xm33), 2)) + '%')
     if i == 7:
         with col8:
             st.info("🫶 L/S 🫶")
-            if nbTrade_00 == 0:
+            if nbTrade_00TFio == 0:
                 st.info("🫶"' : No Trade')
             else:
-                st.info("🫶"' : ' + str(nbLong_00) + ' / ' + str(nbShort_00) + ' (' + str(round((nbLong_00/nbTrade_00)*100)) + '/' + str(round((nbShort_00/nbTrade_00)*100)) + '%)')
-            if nbTrade_01 == 0:
+                st.info("🫶"' : ' + str(nbLong_00TFio) + ' / ' + str(nbShort_00TFio) + ' (' + str(round((nbLong_00TFio/nbTrade_00TFio)*100)) + '/' + str(round((nbShort_00TFio/nbTrade_00TFio)*100)) + '%)')
+            if nbTrade_00Xm33 == 0:
                 st.info("🫶"' : No Trade')
             else:
-                st.info("🫶"' : ' + str(nbLong_01) + ' / ' + str(nbShort_01) + ' (' + str(round((nbLong_01/nbTrade_01)*100)) + '/' + str(round((nbShort_01/nbTrade_01)*100)) + '%)')
+                st.info("🫶"' : ' + str(nbLong_00Xm33) + ' / ' + str(nbShort_00Xm33) + ' (' + str(round((nbLong_00Xm33/nbTrade_00Xm33)*100)) + '/' + str(round((nbShort_00Xm33/nbTrade_00Xm33)*100)) + '%)')
+            # if nbTrade_00Feli == 0:
+            #     st.info("🫶"' : No Trade')
+            # else:
+            #     st.info("🫶"' : ' + str(nbLong_00Feli) + ' / ' + str(nbShort_00Feli) + ' (' + str(round((nbLong_00Feli/nbTrade_00Feli)*100)) + '/' + str(round((nbShort_00Feli/nbTrade_00Feli)*100)) + '%)')
             st.info("🫶 Long/Short 🫶")
     if i == 8:
         with col9:
             st.info("#️⃣ Nb. T #️⃣")
-            st.info("#️⃣"' : ' + str(nbTrade_00))
-            st.info("#️⃣"' : ' + str(nbTrade_01))
-            st.info("#️⃣"' : ' + str(nbTrade_00+nbTrade_01))
+            st.info("#️⃣"' : ' + str(nbTrade_00TFio))
+            st.info("#️⃣"' : ' + str(nbTrade_00Xm33))
+            #st.info("#️⃣"' : ' + str(nbTrade_00Feli))
+            st.info("#️⃣"' : ' + str(nbTrade_00TFio + nbTrade_00Xm33))
     if i == 9:
         with col10:
             st.info('〽️ Perf. 〽️')
-            st.info('〽️'' : ' + str(round(PNL100_00,3)) +'%')
-            st.info('〽️'' : ' + str(round(PNL100_01,3)) +'%')
-            st.info('〽️'' : ' + str(round((PNL100_00 * DEPOSIT_00 + PNL100_01 * DEPOSIT_01) / (DEPOSIT_00 + DEPOSIT_01), 2)) + '%')
+            st.info('〽️'' : ' + str(round(PNL100_00TFio,3)) +'%')
+            st.info('〽️'' : ' + str(round(PNL100_00Xm33,3)) +'%')
+            #st.info('〽️'' : ' + str(round(PNL100_00Feli,3)) +'%')
+            st.info('〽️'' : ' + str(round((PNL100_00TFio * DEPOSIT_00TFio + PNL100_00Xm33 * DEPOSIT_00Xm33) / (DEPOSIT_00TFio + DEPOSIT_00Xm33), 2)) + '%')
     if i == 10:
         with col11:
             st.info('✂️ HWM ✂️')
-            st.info('✂️'' : ' + str(round(float(allUsers[0][5]),2)))
-            st.info('✂️'' : ' + str(round(float(allUsers[1][5]),2)))
-            st.info('✂️'' : ' + str(round(float(allUsers[0][5]) + float(allUsers[1][5]), 2)))
+            st.info('✂️'' : ' + str(round(HWM_00TFio)))
+            st.info('✂️'' : ' + str(round(HWM_00Xm33)))
+            #st.info('✂️'' : ' + str(round(HWM_00Feli)))
+            st.info('✂️'' : ' + str(round(HWM_00TFio+HWM_00Xm33)))
     if i == 11:
         with col12:
             st.info('✂️ Com. ✂️')
-            st.info('✂️'' : ' + str(round(COMMISSION_00-float(allUsers[0][5]),2)))
-            st.info('✂️'' : ' + str(round(COMMISSION_01-float(allUsers[1][5]),2)))
-            st.info('✂️'' : ' + str(round(COMMISSION_00 + COMMISSION_01, 2)))
+            st.info('✂️'' : ' + str(round(COMMISSION_00TFio-HWM_00TFio,2)))
+            st.info('✂️'' : ' + str(round(COMMISSION_00Xm33-HWM_00Xm33,2)))
+            #st.info('✂️'' : ' + str(round(COMMISSION_00Feli-HWM_00Feli,2)))
+            st.info('✂️'' : ' + str(round(COMMISSION_00TFio + COMMISSION_00Xm33 - HWM_00TFio - HWM_00Xm33, 2)))
     if i == 12:
         with col13:
             st.info('✂️ Retro C. ✂️')
-            if allUsers[0][4] == 0:
+            if RETRO_00TFio == 0 or COMMISSION_00TFio-HWM_00TFio <= 0:
                 st.info("🫶"' : N/A')
             else:
-                st.info('✂️'' : ' + str(round((COMMISSION_00-float(allUsers[0][5]))*float(allUsers[0][4]),2)))
-            if allUsers[1][4] == 0:
+                st.info('✂️'' : ' + str(round((COMMISSION_00TFio-HWM_00TFio)*RETRO_00TFio,2)))
+            if RETRO_00Xm33 == 0 or COMMISSION_00Xm33-HWM_00Xm33 <= 0:
                 st.info("🫶"' : N/A')
             else:
-                st.info('✂️'' : ' + str(round((COMMISSION_01-float(allUsers[1][5]))*float(allUsers[1][4]),2)))
-            st.info('✂️'' : ' + str(round((COMMISSION_00 - float(allUsers[0][5])) * float(allUsers[0][4]) + (COMMISSION_01 - float(allUsers[1][5])) * float(allUsers[1][4]), 2)))
-
+                st.info('✂️'' : ' + str(round((COMMISSION_00Xm33-HWM_00Xm33)*RETRO_00Xm33,2)))
+            # if RETRO_00Feli == 0 or COMMISSION_00Feli-HWM_00Feli <= 0:
+            #     st.info("🫶"' : N/A')
+            # else:
+            #     st.info('✂️'' : ' + str(round((COMMISSION_00Feli-HWM_00Feli)*RETRO_00Feli,2)))
+            st.info('✂️'' : ' + str(round((COMMISSION_00TFio - HWM_00TFio) * RETRO_00TFio + (COMMISSION_00Xm33 - HWM_00Xm33) * RETRO_00Xm33, 2)))
 
 
 
@@ -485,57 +502,57 @@ for i in range(13):
     if i == 1:
         with col1_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_00Marc['result'][x]['data']['symbol']))
+                    st.info(str(posUSDT_00Xm33['result'][x]['data']['symbol']))
     if i == 2:
         with col2_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_00Marc['result'][x]['data']['side']))
+                    st.info(str(posUSDT_00Xm33['result'][x]['data']['side']))
     if i == 3:
         with col3_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_00Marc['result'][x]['data']['size']))
+                    st.info(str(posUSDT_00Xm33['result'][x]['data']['size']))
     if i == 4:
         with col4_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    if posUSDT_00Marc['result'][x]['data']['unrealised_pnl'] >= 0:
-                        st.success(str(round(posUSDT_00Marc['result'][x]['data']['unrealised_pnl'],2)))
+                    if posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round(posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'],2)))
                     else:
-                        st.error(str(round(posUSDT_00Marc['result'][x]['data']['unrealised_pnl'],2)))
+                        st.error(str(round(posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'],2)))
     if i == 5:
         with col5_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    if posUSDT_00Marc['result'][x]['data']['unrealised_pnl'] >= 0:
-                        st.success(str(round((posUSDT_00Marc['result'][x]['data']['unrealised_pnl']/(posUSDT_00Marc['result'][x]['data']['entry_price']*posUSDT_00Marc['result'][x]['data']['size']))*100,2))+ '%')
+                    if posUSDT_00Xm33['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round((posUSDT_00Xm33['result'][x]['data']['unrealised_pnl']/(posUSDT_00Xm33['result'][x]['data']['entry_price']*posUSDT_00Xm33['result'][x]['data']['size']))*100,2))+ '%')
                     else:
-                        st.error(str(round((posUSDT_00Marc['result'][x]['data']['unrealised_pnl']/(posUSDT_00Marc['result'][x]['data']['entry_price']*posUSDT_00Marc['result'][x]['data']['size']))*100,2))+ '%')
+                        st.error(str(round((posUSDT_00Xm33['result'][x]['data']['unrealised_pnl']/(posUSDT_00Xm33['result'][x]['data']['entry_price']*posUSDT_00Xm33['result'][x]['data']['size']))*100,2))+ '%')
     if i == 6:
         with col6_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_00Marc['result'][x]['data']['cum_realised_pnl']))
+                    st.info(str(posUSDT_00Xm33['result'][x]['data']['cum_realised_pnl']))
     if i == 7:
         with col7_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(posUSDT_00Marc['result'][x]['data']['entry_price']))
+                    st.info(str(posUSDT_00Xm33['result'][x]['data']['entry_price']))
     if i == 8:
         with col8_01:
             for x in a:
-                oneTrade = posUSDT_00Marc['result'][x]['data']["entry_price"] != 0
+                oneTrade = posUSDT_00Xm33['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
-                    st.info(str(round(posUSDT_00Marc['result'][x]['data']['entry_price']*posUSDT_00Marc['result'][x]['data']['size'],2)))
+                    st.info(str(round(posUSDT_00Xm33['result'][x]['data']['entry_price']*posUSDT_00Xm33['result'][x]['data']['size'],2)))
 
 
 ############################################################################################################ ONE-WAY
@@ -548,9 +565,9 @@ for i in range(13):
 #         ii_00 = str(posUSDT_00Feli['result'][x]['data']['symbol'])
 #         print(session_auth_00Feli.position_mode_switch(symbol=(ii_00), mode="MergedSingle"))
 #         print(posUSDT_00Feli['result'][x]['data']['symbol'])
-#         ii_01 = str(posUSDT_00Marc['result'][x]['data']['symbol'])
-#         print(session_auth_00Marc.position_mode_switch(symbol=(ii_01), mode="MergedSingle"))
-#         print(posUSDT_00Marc['result'][x]['data']['symbol'])
+#         ii_01 = str(posUSDT_00Xm33['result'][x]['data']['symbol'])
+#         print(session_auth_00Xm33.position_mode_switch(symbol=(ii_01), mode="MergedSingle"))
+#         print(posUSDT_00Xm33['result'][x]['data']['symbol'])
 #         print("ok")
 #     except:
 #         #print("pass")
@@ -578,8 +595,8 @@ print(dt1)
 
 for x in a:
     try:
-        ii = str(posUSDT_00Marc['result'][x]['data']['symbol'])
-        authPNL_01 = session_auth_00Marc.closed_profit_and_loss(symbol=(ii))
+        ii = str(posUSDT_00Xm33['result'][x]['data']['symbol'])
+        authPNL_01 = session_auth_00Xm33.closed_profit_and_loss(symbol=(ii))
         for i in range(0,len(authPNL_01)):
             #print(authPNL_00["result"]["data"][i]["created_at"])
             if authPNL_01["result"]["data"][i]["created_at"] > UnixY:
