@@ -222,6 +222,15 @@ for x in a:
 
 
 
+############################################################################################################ PRICE
+
+client = bybit.bybit(test=False, api_key=c00TFio.apKey_00TFio, api_secret=c00TFio.scKey_00TFio)
+info = client.Market.Market_symbolInfo().result()
+keys = info[0]['result']
+btc = keys[42]['last_price']
+name = keys[42]['symbol']
+
+############################################################################################################
 
 
 
