@@ -239,8 +239,8 @@ for x in a_00Xm33:
 client = bybit.bybit(test=False, api_key=st.secrets["aK00TFio"], api_secret=st.secrets["aS00TFio"])
 info = client.Market.Market_symbolInfo().result()
 keys = info[0]['result']
-btc = keys[42]['last_price']
-name = keys[42]['symbol']
+btc = keys[46]['last_price']
+name = keys[46]['symbol']
 
 ############################################################################################################
 
