@@ -298,7 +298,111 @@ for x in a_00Liqi:
 
 ###################################################################################################################################################################### CONFIG Marc
 
+###################################################################################################################################################################### CONFIG Feli
+
+
+ALL_01Vitor = list(range(0, len(posUSDT_01Vitor['result']))) #print(ALL)
+a_01Vitor = arr.array('i', ALL_01Vitor)
+
+######################################################################################### DATA
+
+EQUITY_01Vitor = authUSDT_01Vitor['result']['USDT']['equity']
+NRZ_01Vitor = authUSDT_01Vitor['result']['USDT']['unrealised_pnl']
+PERF_01Vitor = authUSDT_01Vitor['result']['USDT']['cum_realised_pnl']
+AVAILABLE_01Vitor = authUSDT_01Vitor['result']['USDT']['available_balance']
+INPLAY_01Vitor = (EQUITY_01Vitor - AVAILABLE_01Vitor)/EQUITY_01Vitor
+
+
+DEPOSIT_01Vitor = EQUITY_01Vitor - NRZ_01Vitor - PERF_01Vitor
+PNL100_01Vitor = (round(EQUITY_01Vitor/DEPOSIT_01Vitor,4)-1)*100
+
+TAXABLE_01Vitor = NRZ_01Vitor + PERF_01Vitor
+
+if TAXABLE_01Vitor > 0:
+    COMMISSION_01Vitor = TAXABLE_01Vitor * TXCOM_01Vitor
+if TAXABLE_01Vitor <= 0:
+    COMMISSION_01Vitor = 0
+
+
+######################################################################################### NB
+
+nbTrade_01Vitor = 0
+nbLong_01Vitor = 0
+nbShort_01Vitor = 0
+
+for x in a_01Vitor:
+   oneTrade = posUSDT_01Vitor['result'][x]['data']["entry_price"] != 0
+   if oneTrade:
+       nbTrade_01Vitor += 1
+
+for x in a_01Vitor:
+   oneLong = posUSDT_01Vitor['result'][x]['data']["side"] == "Buy" and posUSDT_01Vitor['result'][x]['data']["entry_price"] != 0
+   if oneLong:
+       nbLong_01Vitor += 1
+
+for x in a_01Vitor:
+   oneShort = posUSDT_01Vitor['result'][x]['data']["side"] == "Sell" and posUSDT_01Vitor['result'][x]['data']["entry_price"] != 0
+   if oneShort:
+       nbShort_01Vitor += 1
+
+
 ###################################################################################################################################################################### CONFIG Marc
+
+###################################################################################################################################################################### CONFIG Feli
+
+
+ALL_02Joao = list(range(0, len(posUSDT_02Joao['result']))) #print(ALL)
+a_02Joao = arr.array('i', ALL_02Joao)
+
+######################################################################################### DATA
+
+EQUITY_02Joao = authUSDT_02Joao['result']['USDT']['equity']
+NRZ_02Joao = authUSDT_02Joao['result']['USDT']['unrealised_pnl']
+PERF_02Joao = authUSDT_02Joao['result']['USDT']['cum_realised_pnl']
+AVAILABLE_02Joao = authUSDT_02Joao['result']['USDT']['available_balance']
+INPLAY_02Joao = (EQUITY_02Joao - AVAILABLE_02Joao)/EQUITY_02Joao
+
+
+DEPOSIT_02Joao = EQUITY_02Joao - NRZ_02Joao - PERF_02Joao
+PNL100_02Joao = (round(EQUITY_02Joao/DEPOSIT_02Joao,4)-1)*100
+
+TAXABLE_02Joao = NRZ_02Joao + PERF_02Joao
+
+if TAXABLE_02Joao > 0:
+    COMMISSION_02Joao = TAXABLE_02Joao * TXCOM_02Joao
+if TAXABLE_02Joao <= 0:
+    COMMISSION_02Joao = 0
+
+
+######################################################################################### NB
+
+nbTrade_02Joao = 0
+nbLong_02Joao = 0
+nbShort_02Joao = 0
+
+for x in a_02Joao:
+   oneTrade = posUSDT_02Joao['result'][x]['data']["entry_price"] != 0
+   if oneTrade:
+       nbTrade_02Joao += 1
+
+for x in a_02Joao:
+   oneLong = posUSDT_02Joao['result'][x]['data']["side"] == "Buy" and posUSDT_02Joao['result'][x]['data']["entry_price"] != 0
+   if oneLong:
+       nbLong_02Joao += 1
+
+for x in a_02Joao:
+   oneShort = posUSDT_02Joao['result'][x]['data']["side"] == "Sell" and posUSDT_02Joao['result'][x]['data']["entry_price"] != 0
+   if oneShort:
+       nbShort_02Joao += 1
+
+
+###################################################################################################################################################################### CONFIG Marc
+
+###################################################################################################################################################################### CONFIG Marc
+
+
+
+
 
 
 ############################################################################################################ PRICE
