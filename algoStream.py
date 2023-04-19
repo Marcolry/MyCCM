@@ -981,6 +981,14 @@ for i in range(13):
                 if oneTrade:
                     st.info(str(round(posUSDT_00Liqi['result'][x]['data']['entry_price']*posUSDT_00Liqi['result'][x]['data']['size'],2)))
 
+                    
+                    
+                    
+                    
+                    
+st.markdown('''# **Clients**''')
+
+
 
 
 ####----------------------
