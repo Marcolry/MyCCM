@@ -1225,7 +1225,73 @@ for i in range(13):
                     st.info(str(round(posUSDT_02Joao['result'][x]['data']['entry_price']*posUSDT_02Joao['result'][x]['data']['size'],2)))
 
   
-                    
+
+####----------------------
+####---------------------- Liqi
+####----------------------
+
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+
+for i in range(13):
+    if i == 0:
+        with col0_01:
+            st.info("00 - Liqi")
+    if i == 1:
+        with col1_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_03Rayan['result'][x]['data']['symbol']))
+    if i == 2:
+        with col2_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_03Rayan['result'][x]['data']['side']))
+    if i == 3:
+        with col3_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_03Rayan['result'][x]['data']['size']))
+    if i == 4:
+        with col4_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    if posUSDT_03Rayan['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round(posUSDT_03Rayan['result'][x]['data']['unrealised_pnl'],2)))
+                    else:
+                        st.error(str(round(posUSDT_03Rayan['result'][x]['data']['unrealised_pnl'],2)))
+    if i == 5:
+        with col5_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    if posUSDT_03Rayan['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round((posUSDT_03Rayan['result'][x]['data']['unrealised_pnl']/(posUSDT_03Rayan['result'][x]['data']['entry_price']*posUSDT_03Rayan['result'][x]['data']['size']))*100,2))+ '%')
+                    else:
+                        st.error(str(round((posUSDT_03Rayan['result'][x]['data']['unrealised_pnl']/(posUSDT_03Rayan['result'][x]['data']['entry_price']*posUSDT_03Rayan['result'][x]['data']['size']))*100,2))+ '%')
+    if i == 6:
+        with col6_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_03Rayan['result'][x]['data']['cum_realised_pnl']))
+    if i == 7:
+        with col7_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_03Rayan['result'][x]['data']['entry_price']))
+    if i == 8:
+        with col8_01:
+            for x in a_03Rayan:
+                oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(round(posUSDT_03Rayan['result'][x]['data']['entry_price']*posUSDT_03Rayan['result'][x]['data']['size'],2)))
+
+
                     
                     
                     
