@@ -41,6 +41,9 @@ HWM_01Vitor = 0
 TXCOM_02Joao = 1
 RETRO_02Joao = 0
 HWM_02Joao = 0
+TXCOM_03Rayan = 1
+RETRO_03Rayan = 0
+HWM_03Rayan = 0
 
 
 c00TFio = np.array(['00TFio', st.secrets["aK00TFio"], st.secrets["aS00TFio"], 0.3, 1/3, 0])
@@ -48,8 +51,9 @@ c00Xm33 = np.array(['00Xm33', st.secrets["aK00Xm33"], st.secrets["aS00Xm33"], 0.
 c00Liqi = np.array(['00Liqi', st.secrets["aK00Liqi"], st.secrets["aS00Liqi"], 0.3, 0, 0])
 c01Vitor = np.array(['01Vitor', st.secrets["aK01Vitor"], st.secrets["aS01Vitor"], 0.3, 0, 0])
 c02Joao = np.array(['02Joao', st.secrets["aK02Joao"], st.secrets["aS02Joao"], 0.3, 0, 0])
+c03Rayan = np.array(['03Rayan', st.secrets["aK03Rayan"], st.secrets["aS03Rayan"], 0.3, 0, 0])
 
-allUsers = np.array([c00TFio, c00Xm33, c00Liqi, c01Vitor, c02Joao])
+allUsers = np.array([c00TFio, c00Xm33, c00Liqi, c01Vitor, c02Joao, c03Rayan])
 
 
 session_auth_00TFio = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00TFio"],api_secret=st.secrets["aS00TFio"])
@@ -57,18 +61,21 @@ session_auth_00Xm33 = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_k
 session_auth_00Liqi = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00Liqi"],api_secret=st.secrets["aS00Liqi"])
 session_auth_01Vitor = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK01Vitor"],api_secret=st.secrets["aS01Vitor"])
 session_auth_02Joao = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK02Joao"],api_secret=st.secrets["aS02Joao"])
+session_auth_03Rayan = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK03Rayan"],api_secret=st.secrets["aS03Rayan"])
 
 authUSDT_00TFio = session_auth_00TFio.get_wallet_balance()
 authUSDT_00Xm33 = session_auth_00Xm33.get_wallet_balance()
 authUSDT_00Liqi = session_auth_00Liqi.get_wallet_balance()
 authUSDT_01Vitor = session_auth_01Vitor.get_wallet_balance()
 authUSDT_02Joao = session_auth_02Joao.get_wallet_balance()
+authUSDT_03Rayan = session_auth_03Rayan.get_wallet_balance()
 
 posUSDT_00TFio = session_auth_00TFio.my_position()
 posUSDT_00Xm33 = session_auth_00Xm33.my_position()
 posUSDT_00Liqi = session_auth_00Liqi.my_position()
 posUSDT_01Vitor = session_auth_01Vitor.my_position()
 posUSDT_02Joao = session_auth_02Joao.my_position()
+posUSDT_03Rayan = session_auth_03Rayan.my_position()
 
 
 # # def fAuth(a):
@@ -400,8 +407,54 @@ for x in a_02Joao:
 
 ###################################################################################################################################################################### CONFIG Marc
 
+ALL_03Rayan = list(range(0, len(posUSDT_03Rayan['result']))) #print(ALL)
+a_03Rayan = arr.array('i', ALL_03Rayan)
+
+######################################################################################### DATA
+
+EQUITY_03Rayan = authUSDT_03Rayan['result']['USDT']['equity']
+NRZ_03Rayan = authUSDT_03Rayan['result']['USDT']['unrealised_pnl']
+PERF_03Rayan = authUSDT_03Rayan['result']['USDT']['cum_realised_pnl']
+AVAILABLE_03Rayan = authUSDT_03Rayan['result']['USDT']['available_balance']
+INPLAY_03Rayan = (EQUITY_03Rayan - AVAILABLE_03Rayan)/EQUITY_03Rayan
 
 
+DEPOSIT_03Rayan = EQUITY_03Rayan - NRZ_03Rayan - PERF_03Rayan
+PNL100_03Rayan = (round(EQUITY_03Rayan/DEPOSIT_03Rayan,4)-1)*100
+
+TAXABLE_03Rayan = NRZ_03Rayan + PERF_03Rayan
+
+if TAXABLE_03Rayan > 0:
+    COMMISSION_03Rayan = TAXABLE_03Rayan * TXCOM_03Rayan
+if TAXABLE_03Rayan <= 0:
+    COMMISSION_03Rayan = 0
+
+
+######################################################################################### NB
+
+nbTrade_03Rayan = 0
+nbLong_03Rayan = 0
+nbShort_03Rayan = 0
+
+for x in a_03Rayan:
+   oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+   if oneTrade:
+       nbTrade_03Rayan += 1
+
+for x in a_03Rayan:
+   oneLong = posUSDT_03Rayan['result'][x]['data']["side"] == "Buy" and posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+   if oneLong:
+       nbLong_03Rayan += 1
+
+for x in a_03Rayan:
+   oneShort = posUSDT_03Rayan['result'][x]['data']["side"] == "Sell" and posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
+   if oneShort:
+       nbShort_03Rayan += 1
+
+
+###################################################################################################################################################################### CONFIG Marc
+
+###################################################################################################################################################################### CONFIG Feli
 
 
 
@@ -702,7 +755,61 @@ for i in range(13):
             else:
                 st.info('✂️'' : ' + str(round((COMMISSION_02Joao-RETRO_02Joao)*HWM_02Joao,2)))
 
+####----------------------
+####---------------------- 03Rayan
+####----------------------
 
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+
+for i in range(13):
+    if i == 0:
+        with col1:
+            st.info('💁🏾‍♀️'' 03Rayan')
+    if i == 1:
+        with col2:
+            st.info("💰"' : ' + str(round(EQUITY_03Rayan,2)))
+    if i == 2:
+        with col3:
+            st.info("⬇️"' : ' + str(round(DEPOSIT_03Rayan,2)))
+    if i == 3:
+        with col4:
+            st.info("💸"' : ' + str(round(TAXABLE_03Rayan,2)))
+    if i == 4:
+        with col5:
+            st.info("💸"' : ' + str(round(PERF_03Rayan,2)))
+    if i == 5:
+        with col6:
+            st.info("💸"' : ' + str(round(NRZ_03Rayan,2)))
+    if i == 6:
+        with col7:
+            st.info("💀"' : ' + str(round(INPLAY_03Rayan*100,2)) +'%')
+    if i == 7:
+        with col8:
+            if nbTrade_03Rayan == 0:
+                st.info("🫶"' : No Trade')
+            else:
+                st.info("🫶"' : ' + str(nbLong_03Rayan) + ' / ' + str(nbShort_03Rayan) + ' (' + str(round((nbLong_03Rayan/nbTrade_03Rayan)*100)) + '/' + str(round((nbShort_03Rayan/nbTrade_03Rayan)*100)) + '%)')
+    if i == 8:
+        with col9:
+            st.info("#️⃣"' : ' + str(nbTrade_03Rayan))
+    if i == 9:
+        with col10:
+            st.info('〽️'' : ' + str(round(PNL100_03Rayan,3)) +'%')
+    if i == 10:
+        with col11:
+            st.info('✂️'' : ' + str(round(HWM_03Rayan)))
+    if i == 11:
+        with col12:
+            st.info('✂️'' : ' + str(round(COMMISSION_03Rayan-HWM_03Rayan,2)))
+    if i == 12:
+        with col13:
+            if RETRO_03Rayan == 0:
+                st.info("🫶"' : N/A')
+            else:
+                st.info('✂️'' : ' + str(round((COMMISSION_03Rayan-RETRO_03Rayan)*HWM_03Rayan,2)))
+
+
+                
 ####----------------------
 ####---------------------- Total
 ####----------------------
@@ -716,19 +823,19 @@ for i in range(13):
             st.info('Total')
     if i == 1:
         with col2:
-            st.info("💰"' : ' + str(round(EQUITY_01Vitor+EQUITY_02Joao, 2)))
+            st.info("💰"' : ' + str(round(EQUITY_01Vitor+EQUITY_02Joao+EQUITY_03Rayan, 2)))
     if i == 2:
         with col3:
-            st.info("⬇️"' : ' + str(round(DEPOSIT_01Vitor+DEPOSIT_02Joao,2)))
+            st.info("⬇️"' : ' + str(round(DEPOSIT_01Vitor+DEPOSIT_02Joao+DEPOSIT_03Rayan,2)))
     if i == 3:
         with col4:
-            st.info("💸"' : ' + str(round(TAXABLE_01Vitor+TAXABLE_02Joao, 2)))
+            st.info("💸"' : ' + str(round(TAXABLE_01Vitor+TAXABLE_02Joao+TAXABLE_03Rayan, 2)))
     if i == 4:
         with col5:
-            st.info("💸"' : ' + str(round(PERF_01Vitor+PERF_02Joao, 2)))
+            st.info("💸"' : ' + str(round(PERF_01Vitor+PERF_02Joao+PERF_03Rayan, 2)))
     if i == 5:
         with col6:
-            st.info("💸"' : ' + str(round(NRZ_01Vitor+NRZ_02Joao, 2)))
+            st.info("💸"' : ' + str(round(NRZ_01Vitor+NRZ_02Joao+NRZ_03Rayan, 2)))
     if i == 6:
         with col7:
             st.info("💀 In Play 💀")
