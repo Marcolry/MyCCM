@@ -121,9 +121,9 @@ STATELIMIT_00 = authUSDT_00TFio['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00TFio['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
 ##-----------------------------------------------------------------------> 00 - Marc
-RATELIMIT_01 = authUSDT_00Xm33['rate_limit']
-STATELIMIT_01 = authUSDT_00Xm33['rate_limit_status']
-RESETLIMIT_01 = authUSDT_00Xm33['rate_limit_reset_ms']
+RATELIMIT_01 = authUSDT_00TFio['rate_limit']
+STATELIMIT_01 = authUSDT_00TFio['rate_limit_status']
+RESETLIMIT_01 = authUSDT_00TFio['rate_limit_reset_ms']
 print(str(STATELIMIT_01) + '------------------------------------------------------------------------------->')
 
 
@@ -131,7 +131,7 @@ print(str(STATELIMIT_01) + '----------------------------------------------------
 
 
 #print(len(posUSDT_00TFio['result']))
-#print(len(posUSDT_00Xm33['result']))
+#print(len(posUSDT_00TFio['result']))
 
 ##-----------------------------------------------------------------------> API LIMIT
 
