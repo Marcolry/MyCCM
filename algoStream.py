@@ -29,39 +29,52 @@ st.markdown('''# **AlgoFinance AUM**
 TXCOM_00TFio = 1
 RETRO_00TFio = 0
 HWM_00TFio = 0
+c00TFio = np.array(['00TFio', st.secrets["aK00TFio"], st.secrets["aS00TFio"], 0.3, 1/3, 0])
+session_auth_00TFio = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00TFio"],api_secret=st.secrets["aS00TFio"])
+authUSDT_00TFio = session_auth_00TFio.get_wallet_balance()
+posUSDT_00TFio = session_auth_00TFio.my_position()
+
+
 TXCOM_01Vitor = 1
 RETRO_01Vitor = 0
 HWM_01Vitor = 0
+c01Vitor = np.array(['01Vitor', st.secrets["aK01Vitor"], st.secrets["aS01Vitor"], 0.3, 0, 0])
+session_auth_01Vitor = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK01Vitor"],api_secret=st.secrets["aS01Vitor"])
+authUSDT_01Vitor = session_auth_01Vitor.get_wallet_balance()
+posUSDT_01Vitor = session_auth_01Vitor.my_position()
+
+
 TXCOM_02Joao = 1
 RETRO_02Joao = 0
 HWM_02Joao = 0
+c02Joao = np.array(['02Joao', st.secrets["aK02Joao"], st.secrets["aS02Joao"], 0.3, 0, 0])
+session_auth_02Joao = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK02Joao"],api_secret=st.secrets["aS02Joao"])
+authUSDT_02Joao = session_auth_02Joao.get_wallet_balance()
+posUSDT_02Joao = session_auth_02Joao.my_position()
+
 TXCOM_03Rayan = 1
 RETRO_03Rayan = 0
 HWM_03Rayan = 0
-
-
-c00TFio = np.array(['00TFio', st.secrets["aK00TFio"], st.secrets["aS00TFio"], 0.3, 1/3, 0])
-c01Vitor = np.array(['01Vitor', st.secrets["aK01Vitor"], st.secrets["aS01Vitor"], 0.3, 0, 0])
-c02Joao = np.array(['02Joao', st.secrets["aK02Joao"], st.secrets["aS02Joao"], 0.3, 0, 0])
 c03Rayan = np.array(['03Rayan', st.secrets["aK03Rayan"], st.secrets["aS03Rayan"], 0.3, 0, 0])
-
-allUsers = np.array([c00TFio, c01Vitor, c02Joao, c03Rayan])
-
-
-session_auth_00TFio = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK00TFio"],api_secret=st.secrets["aS00TFio"])
-session_auth_01Vitor = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK01Vitor"],api_secret=st.secrets["aS01Vitor"])
-session_auth_02Joao = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK02Joao"],api_secret=st.secrets["aS02Joao"])
 session_auth_03Rayan = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK03Rayan"],api_secret=st.secrets["aS03Rayan"])
-
-authUSDT_00TFio = session_auth_00TFio.get_wallet_balance()
-authUSDT_01Vitor = session_auth_01Vitor.get_wallet_balance()
-authUSDT_02Joao = session_auth_02Joao.get_wallet_balance()
 authUSDT_03Rayan = session_auth_03Rayan.get_wallet_balance()
-
-posUSDT_00TFio = session_auth_00TFio.my_position()
-posUSDT_01Vitor = session_auth_01Vitor.my_position()
-posUSDT_02Joao = session_auth_02Joao.my_position()
 posUSDT_03Rayan = session_auth_03Rayan.my_position()
+
+
+TXCOM_04Sandra = 1
+RETRO_04Sandra = 0
+HWM_04Sandra = 0
+c04Sandra = np.array(['04Sandra', st.secrets["aK04Sandra"], st.secrets["aS04Sandra"], 0.3, 0, 0])
+session_auth_04Sandra = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK04Sandra"],api_secret=st.secrets["aS04Sandra"])
+authUSDT_04Sandra = session_auth_04Sandra.get_wallet_balance()
+posUSDT_04Sandra = session_auth_04Sandra.my_position()
+
+
+
+allUsers = np.array([c00TFio, c01Vitor, c02Joao, c03Rayan, c04Sandra])
+
+
+
 
 
 # # def fAuth(a):
@@ -109,9 +122,6 @@ posUSDT_03Rayan = session_auth_03Rayan.my_position()
 
 
 
-
-
-
 ##-----------------------------------------------------------------------> 00 - Feli
 
 
@@ -120,27 +130,23 @@ RATELIMIT_00 = authUSDT_00TFio['rate_limit']
 STATELIMIT_00 = authUSDT_00TFio['rate_limit_status']
 RESETLIMIT_00 = authUSDT_00TFio['rate_limit_reset_ms']
 print(str(STATELIMIT_00) + '------------------------------------------------------------------------------->')
-##-----------------------------------------------------------------------> 00 - Marc
-RATELIMIT_01 = authUSDT_00TFio['rate_limit']
-STATELIMIT_01 = authUSDT_00TFio['rate_limit_status']
-RESETLIMIT_01 = authUSDT_00TFio['rate_limit_reset_ms']
-print(str(STATELIMIT_01) + '------------------------------------------------------------------------------->')
-
 
 ###################################################################################################################################################################### API
 
 
 #print(len(posUSDT_00TFio['result']))
-#print(len(posUSDT_00TFio['result']))
 
 ##-----------------------------------------------------------------------> API LIMIT
 
-st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00) + ' & ' + str(STATELIMIT_01) + '/' + str(RATELIMIT_01))
+st.write('**Request Limit:** ' + str(STATELIMIT_00) + '/' + str(RATELIMIT_00))
 
-
-###################################################################################################################################################################### CONFIG Feli
 
 ###################################################################################################################################################################### DASHBOARD
+
+###################################################################################################################################################################### CONFIG 00TFio
+
+###################################################################################################################################################################### CONFIG 00TFio
+
 
 
 ALL_00TFio = list(range(0, len(posUSDT_00TFio['result']))) #print(ALL)
@@ -337,11 +343,62 @@ for x in a_03Rayan:
        nbShort_03Rayan += 1
 
 
-###################################################################################################################################################################### CONFIG Marc
 
-###################################################################################################################################################################### CONFIG Feli
+###################################################################################################################################################################### CONFIG 04Sandra
+
+###################################################################################################################################################################### CONFIG 04Sandra
+
+ALL_04Sandra = list(range(0, len(posUSDT_04Sandra['result']))) #print(ALL)
+a_04Sandra = arr.array('i', ALL_04Sandra)
+
+######################################################################################### DATA
+
+EQUITY_04Sandra = authUSDT_04Sandra['result']['USDT']['equity']
+NRZ_04Sandra = authUSDT_04Sandra['result']['USDT']['unrealised_pnl']
+PERF_04Sandra = authUSDT_04Sandra['result']['USDT']['cum_realised_pnl']
+AVAILABLE_04Sandra = authUSDT_04Sandra['result']['USDT']['available_balance']
+INPLAY_04Sandra = (EQUITY_04Sandra - AVAILABLE_04Sandra)/EQUITY_04Sandra
 
 
+DEPOSIT_04Sandra = EQUITY_04Sandra - NRZ_04Sandra - PERF_04Sandra
+PNL100_04Sandra = (round(EQUITY_04Sandra/DEPOSIT_04Sandra,4)-1)*100
+
+TAXABLE_04Sandra = NRZ_04Sandra + PERF_04Sandra
+
+if TAXABLE_04Sandra > 0:
+    COMMISSION_04Sandra = TAXABLE_04Sandra * TXCOM_04Sandra
+if TAXABLE_04Sandra <= 0:
+    COMMISSION_04Sandra = 0
+
+
+######################################################################################### NB
+
+nbTrade_04Sandra = 0
+nbLong_04Sandra = 0
+nbShort_04Sandra = 0
+
+for x in a_04Sandra:
+   oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+   if oneTrade:
+       nbTrade_04Sandra += 1
+
+for x in a_04Sandra:
+   oneLong = posUSDT_04Sandra['result'][x]['data']["side"] == "Buy" and posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+   if oneLong:
+       nbLong_04Sandra += 1
+
+for x in a_04Sandra:
+   oneShort = posUSDT_04Sandra['result'][x]['data']["side"] == "Sell" and posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+   if oneShort:
+       nbShort_04Sandra += 1
+
+
+
+######################################################################################################################################################################
+
+###################################################################################################################################################################### FIN CONFIG
+
+###################################################################################################################################################################### 
 
 ############################################################################################################ PRICE
 
@@ -353,6 +410,10 @@ name = keys[48]['symbol']
 
 ############################################################################################################
 
+
+###################################################################################################################################################################### 
+###################################################################################################################################################################### My FIRST DASH
+###################################################################################################################################################################### 
 
 
 
@@ -657,10 +718,73 @@ for i in range(13):
                 st.info('✂️'' : ' + str(round((COMMISSION_03Rayan-RETRO_03Rayan)*HWM_03Rayan,2)))
 
 
-                
+
+
+####----------------------
+####---------------------- 04Sandra
+####----------------------
+
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+
+for i in range(13):
+    if i == 0:
+        with col1:
+            st.info('💁🏾‍♀️'' 04Sandra')
+    if i == 1:
+        with col2:
+            st.info("💰"' : ' + str(round(EQUITY_04Sandra,2)))
+    if i == 2:
+        with col3:
+            st.info("⬇️"' : ' + str(round(DEPOSIT_04Sandra,2)))
+    if i == 3:
+        with col4:
+            st.info("💸"' : ' + str(round(TAXABLE_04Sandra,2)))
+    if i == 4:
+        with col5:
+            st.info("💸"' : ' + str(round(PERF_04Sandra,2)))
+    if i == 5:
+        with col6:
+            st.info("💸"' : ' + str(round(NRZ_04Sandra,2)))
+    if i == 6:
+        with col7:
+            st.info("💀"' : ' + str(round(INPLAY_04Sandra*100,2)) +'%')
+    if i == 7:
+        with col8:
+            if nbTrade_04Sandra == 0:
+                st.info("🫶"' : No Trade')
+            else:
+                st.info("🫶"' : ' + str(nbLong_04Sandra) + ' / ' + str(nbShort_04Sandra) + ' (' + str(round((nbLong_04Sandra/nbTrade_04Sandra)*100)) + '/' + str(round((nbShort_04Sandra/nbTrade_04Sandra)*100)) + '%)')
+    if i == 8:
+        with col9:
+            st.info("#️⃣"' : ' + str(nbTrade_04Sandra))
+    if i == 9:
+        with col10:
+            st.info('〽️'' : ' + str(round(PNL100_04Sandra,3)) +'%')
+    if i == 10:
+        with col11:
+            st.info('✂️'' : ' + str(round(HWM_04Sandra)))
+    if i == 11:
+        with col12:
+            st.info('✂️'' : ' + str(round(COMMISSION_04Sandra-HWM_04Sandra,2)))
+    if i == 12:
+        with col13:
+            if RETRO_04Sandra == 0:
+                st.info("🫶"' : N/A')
+            else:
+                st.info('✂️'' : ' + str(round((COMMISSION_04Sandra-RETRO_04Sandra)*HWM_04Sandra,2)))
+
+
+
+####----------------------
+####----------------------
+####----------------------               
 ####----------------------
 ####---------------------- Total
 ####----------------------
+####----------------------
+####----------------------
+####----------------------
+
 
 
 col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
@@ -671,19 +795,19 @@ for i in range(13):
             st.info('Total')
     if i == 1:
         with col2:
-            st.info("💰"' : ' + str(round(EQUITY_01Vitor+EQUITY_02Joao+EQUITY_03Rayan, 2)))
+            st.info("💰"' : ' + str(round(EQUITY_01Vitor+EQUITY_02Joao+EQUITY_03Rayan+EQUITY_04Sandra, 2)))
     if i == 2:
         with col3:
-            st.info("⬇️"' : ' + str(round(DEPOSIT_01Vitor+DEPOSIT_02Joao+DEPOSIT_03Rayan,2)))
+            st.info("⬇️"' : ' + str(round(DEPOSIT_01Vitor+DEPOSIT_02Joao+DEPOSIT_03Rayan+DEPOSIT_04Sandra,2)))
     if i == 3:
         with col4:
-            st.info("💸"' : ' + str(round(TAXABLE_01Vitor+TAXABLE_02Joao+TAXABLE_03Rayan, 2)))
+            st.info("💸"' : ' + str(round(TAXABLE_01Vitor+TAXABLE_02Joao+TAXABLE_03Rayan+TAXABLE_04Sandra, 2)))
     if i == 4:
         with col5:
-            st.info("💸"' : ' + str(round(PERF_01Vitor+PERF_02Joao+PERF_03Rayan, 2)))
+            st.info("💸"' : ' + str(round(PERF_01Vitor+PERF_02Joao+PERF_03Rayan+PERF_04Sandra, 2)))
     if i == 5:
         with col6:
-            st.info("💸"' : ' + str(round(NRZ_01Vitor+NRZ_02Joao+NRZ_03Rayan, 2)))
+            st.info("💸"' : ' + str(round(NRZ_01Vitor+NRZ_02Joao+NRZ_03Rayan+NRZ_04Sandra, 2)))
     if i == 6:
         with col7:
             st.info("💀 In Play 💀")
@@ -744,7 +868,7 @@ for i in range(13):
     if i == 0:
         with col0_01:
             st.info("All Account")
-            st.info("00 - TFio")
+            st.info("00TFio")
     if i == 1:
         with col1_01:
             st.info("Symbol")
@@ -818,7 +942,7 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(13):
     if i == 0:
         with col0_01:
-            st.info("01 - Vitor")
+            st.info("01Vitor")
     if i == 1:
         with col1_01:
             for x in a_01Vitor:
@@ -883,7 +1007,7 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(13):
     if i == 0:
         with col0_01:
-            st.info("02 - Joao")
+            st.info("02Joao")
     if i == 1:
         with col1_01:
             for x in a_02Joao:
@@ -950,7 +1074,7 @@ col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01
 for i in range(13):
     if i == 0:
         with col0_01:
-            st.info("03 - Rayan")
+            st.info("03Rayan")
     if i == 1:
         with col1_01:
             for x in a_03Rayan:
@@ -1005,6 +1129,73 @@ for i in range(13):
                 oneTrade = posUSDT_03Rayan['result'][x]['data']["entry_price"] != 0
                 if oneTrade:
                     st.info(str(round(posUSDT_03Rayan['result'][x]['data']['entry_price']*posUSDT_03Rayan['result'][x]['data']['size'],2)))
+
+
+
+####----------------------
+####---------------------- 04Sandra
+####----------------------
+
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+
+for i in range(13):
+    if i == 0:
+        with col0_01:
+            st.info("04Sandra")
+    if i == 1:
+        with col1_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_04Sandra['result'][x]['data']['symbol']))
+    if i == 2:
+        with col2_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_04Sandra['result'][x]['data']['side']))
+    if i == 3:
+        with col3_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_04Sandra['result'][x]['data']['size']))
+    if i == 4:
+        with col4_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    if posUSDT_04Sandra['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round(posUSDT_04Sandra['result'][x]['data']['unrealised_pnl'],2)))
+                    else:
+                        st.error(str(round(posUSDT_04Sandra['result'][x]['data']['unrealised_pnl'],2)))
+    if i == 5:
+        with col5_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    if posUSDT_04Sandra['result'][x]['data']['unrealised_pnl'] >= 0:
+                        st.success(str(round((posUSDT_04Sandra['result'][x]['data']['unrealised_pnl']/(posUSDT_04Sandra['result'][x]['data']['entry_price']*posUSDT_04Sandra['result'][x]['data']['size']))*100,2))+ '%')
+                    else:
+                        st.error(str(round((posUSDT_04Sandra['result'][x]['data']['unrealised_pnl']/(posUSDT_04Sandra['result'][x]['data']['entry_price']*posUSDT_04Sandra['result'][x]['data']['size']))*100,2))+ '%')
+    if i == 6:
+        with col6_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_04Sandra['result'][x]['data']['cum_realised_pnl']))
+    if i == 7:
+        with col7_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(posUSDT_04Sandra['result'][x]['data']['entry_price']))
+    if i == 8:
+        with col8_01:
+            for x in a_04Sandra:
+                oneTrade = posUSDT_04Sandra['result'][x]['data']["entry_price"] != 0
+                if oneTrade:
+                    st.info(str(round(posUSDT_04Sandra['result'][x]['data']['entry_price']*posUSDT_04Sandra['result'][x]['data']['size'],2)))
 
 
                     
