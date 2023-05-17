@@ -348,8 +348,8 @@ for x in a_03Rayan:
 client = bybit.bybit(test=False, api_key=st.secrets["aK00TFio"], api_secret=st.secrets["aS00TFio"])
 info = client.Market.Market_symbolInfo().result()
 keys = info[0]['result']
-btc = keys[44]['last_price']
-name = keys[44]['symbol']
+btc = keys[48]['last_price']
+name = keys[48]['symbol']
 
 ############################################################################################################
 
