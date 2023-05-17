@@ -390,7 +390,7 @@ for i in range(13):
         with col6:
             st.info("💸 Unrealized 💸")
             st.info("💸"' : ' + str(round(NRZ_00TFio,2)))
-            st.info("💸"' : ' + str(round(NRZ_00TFio+2410,2)))
+            st.info("💸"' : ' + str(round(NRZ_00TFio,2)))
     if i == 6:
         with col7:
             st.info("💀 In Play 💀")
