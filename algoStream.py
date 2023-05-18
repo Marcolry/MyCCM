@@ -37,7 +37,7 @@ posUSDT_00TFio = session_auth_00TFio.my_position()
 
 TXCOM_01Vitor = 0.1
 RETRO_01Vitor = 0
-HWM_01Vitor = 200
+HWM_01Vitor = 150
 c01Vitor = np.array(['01Vitor', st.secrets["aK01Vitor"], st.secrets["aS01Vitor"], 0.3, 0, 0])
 session_auth_01Vitor = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK01Vitor"],api_secret=st.secrets["aS01Vitor"])
 authUSDT_01Vitor = session_auth_01Vitor.get_wallet_balance()
