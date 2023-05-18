@@ -44,7 +44,7 @@ authUSDT_01Vitor = session_auth_01Vitor.get_wallet_balance()
 posUSDT_01Vitor = session_auth_01Vitor.my_position()
 
 
-TXCOM_02Joao = 1
+TXCOM_02Joao = 0.1
 RETRO_02Joao = 0
 HWM_02Joao = 0
 c02Joao = np.array(['02Joao', st.secrets["aK02Joao"], st.secrets["aS02Joao"], 0.3, 0, 0])
@@ -52,7 +52,7 @@ session_auth_02Joao = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_k
 authUSDT_02Joao = session_auth_02Joao.get_wallet_balance()
 posUSDT_02Joao = session_auth_02Joao.my_position()
 
-TXCOM_03Rayan = 1
+TXCOM_03Rayan = 0.1
 RETRO_03Rayan = 0
 HWM_03Rayan = 0
 c03Rayan = np.array(['03Rayan', st.secrets["aK03Rayan"], st.secrets["aS03Rayan"], 0.3, 0, 0])
@@ -61,9 +61,9 @@ authUSDT_03Rayan = session_auth_03Rayan.get_wallet_balance()
 posUSDT_03Rayan = session_auth_03Rayan.my_position()
 
 
-TXCOM_04Sandra = 1
+TXCOM_04Sandra = 0.1
 RETRO_04Sandra = 0
-HWM_04Sandra = 0
+HWM_04Sandra = 262.57
 c04Sandra = np.array(['04Sandra', st.secrets["aK04Sandra"], st.secrets["aS04Sandra"], 0.3, 0, 0])
 session_auth_04Sandra = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK04Sandra"],api_secret=st.secrets["aS04Sandra"])
 authUSDT_04Sandra = session_auth_04Sandra.get_wallet_balance()
