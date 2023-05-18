@@ -63,7 +63,7 @@ posUSDT_03Rayan = session_auth_03Rayan.my_position()
 
 TXCOM_04Sandra = 0.1
 RETRO_04Sandra = 0
-HWM_04Sandra = 262.57
+HWM_04Sandra = 0
 c04Sandra = np.array(['04Sandra', st.secrets["aK04Sandra"], st.secrets["aS04Sandra"], 0.3, 0, 0])
 session_auth_04Sandra = usdt_perpetual.HTTP(endpoint="https://api.bybit.com",api_key=st.secrets["aK04Sandra"],api_secret=st.secrets["aS04Sandra"])
 authUSDT_04Sandra = session_auth_04Sandra.get_wallet_balance()
@@ -355,7 +355,7 @@ a_04Sandra = arr.array('i', ALL_04Sandra)
 
 EQUITY_04Sandra = authUSDT_04Sandra['result']['USDT']['equity']
 NRZ_04Sandra = authUSDT_04Sandra['result']['USDT']['unrealised_pnl']
-PERF_04Sandra = authUSDT_04Sandra['result']['USDT']['cum_realised_pnl']
+PERF_04Sandra = authUSDT_04Sandra['result']['USDT']['cum_realised_pnl'] - 262.57
 AVAILABLE_04Sandra = authUSDT_04Sandra['result']['USDT']['available_balance']
 INPLAY_04Sandra = (EQUITY_04Sandra - AVAILABLE_04Sandra)/EQUITY_04Sandra
 
