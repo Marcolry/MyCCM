@@ -35,7 +35,7 @@ authUSDT_00TFio = session_auth_00TFio.get_wallet_balance()
 posUSDT_00TFio = session_auth_00TFio.my_position()
 
 
-TXCOM_01Vitor = 1
+TXCOM_01Vitor = 0.1
 RETRO_01Vitor = 0
 HWM_01Vitor = 0
 c01Vitor = np.array(['01Vitor', st.secrets["aK01Vitor"], st.secrets["aS01Vitor"], 0.3, 0, 0])
