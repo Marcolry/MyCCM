@@ -405,8 +405,8 @@ for x in a_04Sandra:
 client = bybit.bybit(test=False, api_key=st.secrets["aK00TFio"], api_secret=st.secrets["aS00TFio"])
 info = client.Market.Market_symbolInfo().result()
 keys = info[0]['result']
-btc = keys[49]['last_price']
-name = keys[49]['symbol']
+btc = keys[50]['last_price']
+name = keys[50]['symbol']
 
 ############################################################################################################
 
