@@ -12,7 +12,6 @@ import socket
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 print('My local IP is: ' + local_ip)
-#from requests import ge
 import requests
 ip = get('https://api.ipify.org').text
 print(f'My public IP is: {ip}')
