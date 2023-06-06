@@ -12,10 +12,10 @@ import socket
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 print('My local IP is: ' + local_ip)
-import requests
-ip = get('https://api.ipify.org').text
-print(f'My public IP is: {ip}')
-st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
+#from requests import ge
+#ip = get('https://api.ipify.org').text
+#print(f'My public IP is: {ip}')
+#st.write('**Local IP:** ' + str(local_ip) + ' // **Public IP:** ' + str(ip))
 
 
 #Config Final Array:
