@@ -424,7 +424,7 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13
 for i in range(13):
     if i == 0:
         with col1:
-            st.info("₿: "+ btc)
+            st.info("₿: "+ btc + name)
             st.info('💁🏾‍♀️'' 00TFio')
             st.info("💰"' : ' + str(round((EQUITY_00TFio)/float(btc), 4)) + ' BTC')
     if i == 1:
