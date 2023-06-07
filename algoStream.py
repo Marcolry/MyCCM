@@ -591,9 +591,9 @@ for i in range(10):
 ####---------------------- 02Joao
 ####----------------------
 
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col1:
             st.info('💁🏾‍♀️'' 02Joao')
@@ -617,36 +617,21 @@ for i in range(13):
             st.info("💀"' : ' + str(round(INPLAY_02Joao*100,2)) +'%')
     if i == 7:
         with col8:
-            if nbTrade_02Joao == 0:
-                st.info("🫶"' : No Trade')
-            else:
-                st.info("🫶"' : ' + str(nbLong_02Joao) + ' / ' + str(nbShort_02Joao) + ' (' + str(round((nbLong_02Joao/nbTrade_02Joao)*100)) + '/' + str(round((nbShort_02Joao/nbTrade_02Joao)*100)) + '%)')
+            st.info('〽️'' : ' + str(round(PNL100_02Joao,3)) +'%')
     if i == 8:
         with col9:
-            st.info("#️⃣"' : ' + str(nbTrade_02Joao))
+            st.info('✂️'' : ' + str(round(HWM_02Joao)))
     if i == 9:
         with col10:
-            st.info('〽️'' : ' + str(round(PNL100_02Joao,3)) +'%')
-    if i == 10:
-        with col11:
-            st.info('✂️'' : ' + str(round(HWM_02Joao)))
-    if i == 11:
-        with col12:
             st.info('✂️'' : ' + str(round(COMMISSION_02Joao-HWM_02Joao,2)))
-    if i == 12:
-        with col13:
-            if RETRO_02Joao == 0:
-                st.info("🫶"' : N/A')
-            else:
-                st.info('✂️'' : ' + str(round((COMMISSION_02Joao-RETRO_02Joao)*HWM_02Joao,2)))
 
 ####----------------------
 ####---------------------- 03Rayan
 ####----------------------
 
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col1:
             st.info('💁🏾‍♀️'' 03Rayan')
@@ -670,39 +655,22 @@ for i in range(13):
             st.info("💀"' : ' + str(round(INPLAY_03Rayan*100,2)) +'%')
     if i == 7:
         with col8:
-            if nbTrade_03Rayan == 0:
-                st.info("🫶"' : No Trade')
-            else:
-                st.info("🫶"' : ' + str(nbLong_03Rayan) + ' / ' + str(nbShort_03Rayan) + ' (' + str(round((nbLong_03Rayan/nbTrade_03Rayan)*100)) + '/' + str(round((nbShort_03Rayan/nbTrade_03Rayan)*100)) + '%)')
+            st.info('〽️'' : ' + str(round(PNL100_03Rayan,3)) +'%')
     if i == 8:
         with col9:
-            st.info("#️⃣"' : ' + str(nbTrade_03Rayan))
+            st.info('✂️'' : ' + str(round(HWM_03Rayan)))
     if i == 9:
         with col10:
-            st.info('〽️'' : ' + str(round(PNL100_03Rayan,3)) +'%')
-    if i == 10:
-        with col11:
-            st.info('✂️'' : ' + str(round(HWM_03Rayan)))
-    if i == 11:
-        with col12:
             st.info('✂️'' : ' + str(round(COMMISSION_03Rayan-HWM_03Rayan,2)))
-    if i == 12:
-        with col13:
-            if RETRO_03Rayan == 0:
-                st.info("🫶"' : N/A')
-            else:
-                st.info('✂️'' : ' + str(round((COMMISSION_03Rayan-RETRO_03Rayan)*HWM_03Rayan,2)))
-
-
 
 
 ####----------------------
 ####---------------------- 04Sandra
 ####----------------------
 
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col1:
             st.info('💁🏾‍♀️'' 04Sandra')
@@ -726,28 +694,13 @@ for i in range(13):
             st.info("💀"' : ' + str(round(INPLAY_04Sandra*100,2)) +'%')
     if i == 7:
         with col8:
-            if nbTrade_04Sandra == 0:
-                st.info("🫶"' : No Trade')
-            else:
-                st.info("🫶"' : ' + str(nbLong_04Sandra) + ' / ' + str(nbShort_04Sandra) + ' (' + str(round((nbLong_04Sandra/nbTrade_04Sandra)*100)) + '/' + str(round((nbShort_04Sandra/nbTrade_04Sandra)*100)) + '%)')
+            st.info('〽️'' : ' + str(round(PNL100_04Sandra,3)) +'%')
     if i == 8:
         with col9:
-            st.info("#️⃣"' : ' + str(nbTrade_04Sandra))
+            st.info('✂️'' : ' + str(round(HWM_04Sandra)))
     if i == 9:
         with col10:
-            st.info('〽️'' : ' + str(round(PNL100_04Sandra,3)) +'%')
-    if i == 10:
-        with col11:
-            st.info('✂️'' : ' + str(round(HWM_04Sandra)))
-    if i == 11:
-        with col12:
             st.info('✂️'' : ' + str(round(COMMISSION_04Sandra-HWM_04Sandra,2)))
-    if i == 12:
-        with col13:
-            if RETRO_04Sandra == 0:
-                st.info("🫶"' : N/A')
-            else:
-                st.info('✂️'' : ' + str(round((COMMISSION_04Sandra-RETRO_04Sandra)*HWM_04Sandra,2)))
 
 
 
