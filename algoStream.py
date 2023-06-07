@@ -421,7 +421,7 @@ name = keys[50]['symbol']
 
 col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
 
-for i in range(13):
+for i in range(12):
     if i == 0:
         with col1:
             st.info("₿: "+ btc)
@@ -485,14 +485,14 @@ for i in range(13):
             st.info('✂️ Com. ✂️')
             st.info('✂️'' : ' + str(round(COMMISSION_00TFio-HWM_00TFio,2)))
             st.info('✂️'' : ' + str(round(COMMISSION_00TFio - HWM_00TFio, 2)))
-    if i == 12:
-        with col13:
-            st.info('✂️ Retro C. ✂️')
-            if RETRO_00TFio == 0 or COMMISSION_00TFio-HWM_00TFio <= 0:
-                st.info("🫶"' : N/A')
-            else:
-                st.info('✂️'' : ' + str(round((COMMISSION_00TFio-HWM_00TFio)*RETRO_00TFio,2)))
-            st.info('✂️'' : ' + str(round((COMMISSION_00TFio - HWM_00TFio) * RETRO_00TFio,2)))
+#    if i == 12:
+#        with col13:
+#            st.info('✂️ Retro C. ✂️')
+#            if RETRO_00TFio == 0 or COMMISSION_00TFio-HWM_00TFio <= 0:
+#                st.info("🫶"' : N/A')
+#            else:
+#                st.info('✂️'' : ' + str(round((COMMISSION_00TFio-HWM_00TFio)*RETRO_00TFio,2)))
+#            st.info('✂️'' : ' + str(round((COMMISSION_00TFio - HWM_00TFio) * RETRO_00TFio,2)))
 
 
 
