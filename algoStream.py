@@ -511,9 +511,9 @@ st.markdown('''# **Clients**''')
 ######################################################################################################################################################################
 
 
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col1:
             st.info(' 📘 ')
@@ -537,22 +537,13 @@ for i in range(13):
             st.info("💀 In Play 💀")
     if i == 7:
         with col8:
-            st.info("🫶 L/S 🫶")
+            st.info('〽️ Perf. 〽️')
     if i == 8:
         with col9:
-            st.info("#️⃣ Nb. T #️⃣")
+            st.info('✂️ HWM ✂️')
     if i == 9:
         with col10:
-            st.info('〽️ Perf. 〽️')
-    if i == 10:
-        with col11:
-            st.info('✂️ HWM ✂️')
-    if i == 11:
-        with col12:
             st.info('✂️ Com. ✂️')
-    if i == 12:
-        with col13:
-            st.info('✂️ Retro C. ✂️')
 
             
 
@@ -561,9 +552,9 @@ for i in range(13):
 ####----------------------
 
 
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col1:
             st.info('💁🏾‍♀️'' 01Vitor')
@@ -585,30 +576,15 @@ for i in range(13):
     if i == 6:
         with col7:
             st.info("💀"' : ' + str(round(INPLAY_01Vitor*100,2)) +'%')
-    if i == 7:
-        with col8:
-            if nbTrade_01Vitor == 0:
-                st.info("🫶"' : No Trade')
-            else:
-                st.info("🫶"' : ' + str(nbLong_01Vitor) + ' / ' + str(nbShort_01Vitor) + ' (' + str(round((nbLong_01Vitor/nbTrade_01Vitor)*100)) + '/' + str(round((nbShort_01Vitor/nbTrade_01Vitor)*100)) + '%)')
     if i == 8:
-        with col9:
-            st.info("#️⃣"' : ' + str(nbTrade_01Vitor))
-    if i == 9:
         with col10:
             st.info('〽️'' : ' + str(round(PNL100_01Vitor,3)) +'%')
-    if i == 10:
+    if i == 9:
         with col11:
             st.info('✂️'' : ' + str(round(HWM_01Vitor)))
-    if i == 11:
+    if i == 10:
         with col12:
             st.info('✂️'' : ' + str(round(COMMISSION_01Vitor-HWM_01Vitor,2)))
-    if i == 12:
-        with col13:
-            if RETRO_01Vitor == 0:
-                st.info("🫶"' : N/A')
-            else:
-                st.info('✂️'' : ' + str(round((COMMISSION_01Vitor-RETRO_01Vitor)*HWM_01Vitor,2)))
 
 
 ####----------------------
