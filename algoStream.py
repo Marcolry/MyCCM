@@ -421,7 +421,7 @@ name = keys[50]['symbol']
 
 col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
 
-for i in range(12):
+for i in range(10):
     if i == 0:
         with col1:
             st.info("₿: "+ btc)
@@ -457,30 +457,30 @@ for i in range(12):
             st.info("💀 In Play 💀")
             st.info("💀"' : ' + str(round(INPLAY_00TFio*100,2)) +'%')
             st.info("💀"' : ' + str(round((EQUITY_00TFio - AVAILABLE_00TFio) * 100 / (EQUITY_00TFio), 2)) + '%')
+#    if i == 7:
+#        with col8:
+#            st.info("🫶 L/S 🫶")
+#            if nbTrade_00TFio == 0:
+#                st.info("🫶"' : No Trade')
+#            else:
+#                st.info("🫶"' : ' + str(nbLong_00TFio) + ' / ' + str(nbShort_00TFio) + ' (' + str(round((nbLong_00TFio/nbTrade_00TFio)*100)) + '/' + str(round((nbShort_00TFio/nbTrade_00TFio)*100)) + '%)')
+#           st.info("🫶 Long/Short 🫶")
+#    if i == 8:
+#        with col9:
+#            st.info("#️⃣ Nb. T #️⃣")
+#            st.info("#️⃣"' : ' + str(nbTrade_00TFio))
+#            st.info("#️⃣"' : ' + str(nbTrade_00TFio))
     if i == 7:
-        with col8:
-            st.info("🫶 L/S 🫶")
-            if nbTrade_00TFio == 0:
-                st.info("🫶"' : No Trade')
-            else:
-                st.info("🫶"' : ' + str(nbLong_00TFio) + ' / ' + str(nbShort_00TFio) + ' (' + str(round((nbLong_00TFio/nbTrade_00TFio)*100)) + '/' + str(round((nbShort_00TFio/nbTrade_00TFio)*100)) + '%)')
-            st.info("🫶 Long/Short 🫶")
-    if i == 8:
-        with col9:
-            st.info("#️⃣ Nb. T #️⃣")
-            st.info("#️⃣"' : ' + str(nbTrade_00TFio))
-            st.info("#️⃣"' : ' + str(nbTrade_00TFio))
-    if i == 9:
         with col10:
             st.info('〽️ Perf. 〽️')
             st.info('〽️'' : ' + str(round(PNL100_00TFio,3)) +'%')
             st.info('〽️'' : ' + str(round((PNL100_00TFio * DEPOSIT_00TFio) / (DEPOSIT_00TFio), 2)) + '%')
-    if i == 10:
+    if i == 8:
         with col11:
             st.info('✂️ HWM ✂️')
             st.info('✂️'' : ' + str(round(HWM_00TFio)))
             st.info('✂️'' : ' + str(round(HWM_00TFio)))
-    if i == 11:
+    if i == 9:
         with col12:
             st.info('✂️ Com. ✂️')
             st.info('✂️'' : ' + str(round(COMMISSION_00TFio-HWM_00TFio,2)))
