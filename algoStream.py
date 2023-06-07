@@ -716,9 +716,9 @@ for i in range(10):
 
 
 
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13 = st.columns(13)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col1:
             st.info('Total')
@@ -740,24 +740,24 @@ for i in range(13):
     if i == 6:
         with col7:
             st.info("💀 In Play 💀")
+#    if i == 7:
+#        with col8:
+#            st.info("🫶 Long/Short 🫶")
+#    if i == 8:
+#        with col9:
+#            st.info("#️⃣ Nb. T #️⃣")
     if i == 7:
         with col8:
-            st.info("🫶 Long/Short 🫶")
+            st.info('〽️ Perf. 〽️')
     if i == 8:
         with col9:
-            st.info("#️⃣ Nb. T #️⃣")
+            st.info('✂️ HWM ✂️')
     if i == 9:
         with col10:
-            st.info('〽️ Perf. 〽️')
-    if i == 10:
-        with col11:
-            st.info('✂️ HWM ✂️')
-    if i == 11:
-        with col12:
             st.info('✂️ Com. ✂️')
-    if i == 12:
-        with col13:
-            st.info('✂️ Retro C. ✂️')
+#    if i == 12:
+#        with col13:
+#            st.info('✂️ Retro C. ✂️')
 
 
 
