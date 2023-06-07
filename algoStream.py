@@ -576,13 +576,13 @@ for i in range(10):
     if i == 6:
         with col7:
             st.info("💀"' : ' + str(round(INPLAY_01Vitor*100,2)) +'%')
-    if i == 8:
+    if i == 7:
         with col8:
             st.info('〽️'' : ' + str(round(PNL100_01Vitor,3)) +'%')
-    if i == 9:
+    if i == 8:
         with col9:
             st.info('✂️'' : ' + str(round(HWM_01Vitor)))
-    if i == 10:
+    if i == 9:
         with col10:
             st.info('✂️'' : ' + str(round(COMMISSION_01Vitor-HWM_01Vitor,2)))
 
