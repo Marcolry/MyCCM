@@ -791,9 +791,9 @@ st.markdown('''# **Positions:**
 ####---------------------- TFio
 ####----------------------
 
-col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col0_01:
             st.info("All Account")
@@ -866,9 +866,9 @@ for i in range(13):
 ####---------------------- 01Vitor
 ####----------------------
 
-col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col0_01:
             st.info("01Vitor")
@@ -931,9 +931,9 @@ for i in range(13):
 ####---------------------- 02Joao
 ####----------------------
 
-col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col0_01:
             st.info("02Joao")
@@ -998,9 +998,9 @@ for i in range(13):
 ####---------------------- 03Rayan
 ####----------------------
 
-col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col0_01:
             st.info("03Rayan")
@@ -1065,9 +1065,9 @@ for i in range(13):
 ####---------------------- 04Sandra
 ####----------------------
 
-col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01, col10_01, col11_01, col12_01 = st.columns(13)
+col0_01, col1_01, col2_01 , col3_01, col4_01, col5_01, col6_01, col7_01, col8_01, col9_01 = st.columns(10)
 
-for i in range(13):
+for i in range(10):
     if i == 0:
         with col0_01:
             st.info("04Sandra")
