@@ -19,7 +19,7 @@ print('My local IP is: ' + local_ip)
 
 
 #Config Final Array:
-# Nom, aK, aS, Tx, RetroC, HWM
+# Nom, aK, aS, Tx, RetroC, HWM 
 
 st.markdown('''# **AlgoFinance AUM**
 ''')
