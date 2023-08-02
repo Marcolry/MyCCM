@@ -1,6 +1,6 @@
 Bybit==0.2.12
 pandas==1.4.3
-pybit==2.3.0
+pybit==2.31.0
 streamlit>=1.11.1
 requests==2.27.1
 numpy==1.22.4
